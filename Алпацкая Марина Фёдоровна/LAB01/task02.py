@@ -1,35 +1,27 @@
-def chek(student_chek, l=int):
-    if student_chek[l] > 5:
-        return False
-    if student_chek[l] < 0:
-        return False
-    return True
-
-def number_chek(num_st, name_kurs, list_kurs):
-    print(
-        f"\nСредняя оценка по предмету '{name_kurs}': {sum(num_st[e][list_kurs.index(name_kurs)] for e in students) / len(students)}")
-    print(f"Максимальная оценка по предмету '{name_kurs}': {max(num_st[e][list_kurs.index(name_kurs)] for e in students)}")
-    print(f"Минимальная оценка по предмету '{name_kurs}': {min(num_st[e][list_kurs.index(name_kurs)] for e in students)}")
+def number_chek(list_chekc: dict[str: dict[str: int]]):
+    for i in list_chekc:
+        print(f"\nСредняя оценка по предмету '{i}': {sum(int(list_chekc[i][num]) for num in list_chekc[i])/len(list_chekc[i])}")
+        print(f"Максимальная оценка по предмету '{i}': {max(int(list_chekc[i][num]) for num in list_chekc[i])}")
+        print(f"Минимальная оценка по предмету '{i}': {min(int(list_chekc[i][num]) for num in list_chekc[i])}")
     return None
 
 if __name__ == '__main__':
-    kurs = ["програмирование пайтон", "цифравая аналитика", "введение в биоинформатику"]
-    number_of_students = input("Введите количество студентов: ")
-    while number_of_students.isdigit() == False:
-        print('Вы написали не число. Попробуйте ещё раз.')
-        number_of_students = input("Введите количество студентов: ")
-    students = {}
+    students: dict[str: dict[str: int]]= {"програмирование пайтон": {}, "цифравая аналитика": {}, "введение в биоинформатику": {}}
+    print('Ведите имина студентов\n Когда закончите вводить студентов введите букву: "N"')
+    name = []
+    while 'N' and 'n' not in name:
+        name.append(input('Введите имя студента: '))
+    name.pop()
 
-    for num in range(int(number_of_students)):
-        student = input("\nВведите имя студента: ")
-        students[student] = []
-        for i in range(len(kurs)):
-            students[student].append(
-                int(input(f"Введите оценку по {kurs[i]} которую получил/а {student}: ")))
-            while chek(students[student], i) == False:
-                students[student].pop()
-                students[student].append(int(input(
-                    f"Пожалуйста введите коректную оценку по предмету {kurs[i]} которую получил/а студент/ка {student}: ")))
+    for journal in students:
+        for num in name:
+            t_f = True
+            while t_f == True:
+                students[journal][num] = input(f'Введите оценку по предмету "{journal}" которую получил/ла {num}: ')
+                if students[journal][num].isdigit():
+                    if 2<= int(students[journal][num]) <= 5:
+                        t_f = False
+                        continue
+                print("Вы ввели не валидное значение, пожалуйста попробуйте снова")
 
-    for i in kurs:
-        number_chek(students, i, kurs)
+    number_chek(students)

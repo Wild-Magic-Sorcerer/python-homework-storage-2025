@@ -1,4 +1,4 @@
-def number_chek(num = list):
+def number_chek(num: list):
     max_num = max(i for i in num)
     min_num = min(i for i in num)
     sum_num = sum(i for i in num)
