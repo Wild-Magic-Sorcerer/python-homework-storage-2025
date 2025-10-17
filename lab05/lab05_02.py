@@ -4,8 +4,7 @@
 print('Пожалуйста введите строчку своего текста')
 line_from_user = str(input())
 with open('lab05_02_file.txt', 'a') as file:
-    file.write(line_from_user + '\n')
-    file.close()
+    file.write(f'{line_from_user}\n')
 with open('lab05_02_file.txt', 'r') as file:
     while True:
         line = file.readline()
@@ -13,4 +12,3 @@ with open('lab05_02_file.txt', 'r') as file:
             line = file.readline().replace('\n', '')
             continue
         print(line)
-    file.close()
