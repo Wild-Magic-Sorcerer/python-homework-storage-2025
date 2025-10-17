@@ -9,5 +9,3 @@ with open('lab05_03_file_f.txt', 'r+') as file_with_cat:
             continue
         with open('lab05_03_file_s.txt', 'a') as file_with_dog:
             file_with_dog.write(list_cnd)
-            file_with_dog.close()
-    file_with_cat.close()
