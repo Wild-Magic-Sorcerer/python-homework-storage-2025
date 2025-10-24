@@ -15,7 +15,7 @@ def checking_str(stroka: str,compare: str):
     if len(set(match)) == len(set(stroka_lower.split())):
         return print(f'Все слова присутствуют')
     else:
-        return print(f"Перечень не совподающих слов: {set(match)}")
+        return print(f"Перечень не совподающих слов: {set(stroka_lower.split()) - set(match)}")
 
 if __name__ == '__main__':
 
