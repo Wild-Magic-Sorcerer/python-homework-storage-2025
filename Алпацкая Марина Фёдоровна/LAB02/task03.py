@@ -1,7 +1,7 @@
 if __name__ == '__main__':
-    highlight_vowels = input("Введите слово на прверку:\n")
-    highlight_vowels = highlight_vowels.lower()
-    original = "ёуеыаоэяию"
-    new = original.upper()
+    str_words = input("Введите пожалуйста слова через пробел:\n")
+    words_tuple = tuple(str_words.split(" "))
+    words_set = set(str_words.split(" "))
 
-    print(highlight_vowels.translate(str.maketrans(original, new)))
+    print(f"Количество уникальных слов в строке: {len(words_set)}")
+

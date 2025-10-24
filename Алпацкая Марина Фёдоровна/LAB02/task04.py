@@ -1,8 +1,14 @@
-def time(data: str):
-    data = data.replace(".", " ")
-    data = data.replace(":", " ")
-    data_list = data.split()
-    return print(f'День: {data_list[0]}\nМесяц: {data_list[1]}\nГод: {data_list[2]}\nЧас: {data_list[3]}\nМинута: {data_list[4]}\nСекунда: {data_list[5]}\n')
+list_numbers = [6, 7, 8, 6, 5, 64, 4, 5, 6, 7, 6, 6, 5, 4, 5, 89893, 6767]
 
 if __name__ == '__main__':
-    time(input("Введите время формата 'ДД.ММ.ГГГГ ЧЧ:ММ:СС':\n"))
+    dictionaries_number = {}
+
+    for i in list_numbers:
+        if i not in dictionaries_number:
+            dictionaries_number[i] = 1
+        else:
+            dictionaries_number[i] += 1
+
+    for key in dictionaries_number:
+        print(f"Число '{key}' встречается: {dictionaries_number.get(key)} раз")
+
