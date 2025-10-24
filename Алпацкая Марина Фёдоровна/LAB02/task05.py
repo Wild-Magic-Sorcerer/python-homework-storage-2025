@@ -1,25 +1,24 @@
-def checking_str(stroka=str,compare=str):
+def checking_str(stroka: str,compare: str):
     match = []
-    stroka_list = stroka.split()
-    compare = compare.lower()
-    compare_list = compare.split()
-    for num_word in range(len(compare_list)):
-        if compare_list[num_word].isalpha() == False:
-            for i in compare_list[num_word]:
-                if i.isalpha() == False:
-                    compare_list[num_word] = compare_list[num_word].replace(i,'')
-    for word in stroka_list:
-        word = word.lower()
-        if word.isalpha() == False:
-            for i in word:
-                if i.isalpha() == False:
-                    word = word.replace(i,'')
-        for com in compare_list:
-            if com == word:
+    stroka_lower = stroka.lower()
+    compare_lower = compare.lower()
+    for letter_compare in compare_lower.replace(" ",""):
+         if not letter_compare.isalnum():
+            compare_lower = compare_lower.replace(letter_compare,'')
+    for letter_stroka in stroka_lower.replace(" ",""):
+        if not letter_stroka.isalnum():
+            stroka_lower = stroka_lower.replace(letter_stroka,'')
+    for com in compare_lower.split():
+        for strok in stroka_lower.split():
+            if com == strok:
                 match.append(com)
-    if len(set(match)) == len(set(stroka_list)):
+    if len(set(match)) == len(set(stroka_lower.split())):
         return print(f'Все слова присутствуют')
     else:
-        return print(f"Перечень совподающих слов: {set(match)}")
+        return print(f"Перечень не совподающих слов: {set(match)}")
+
 if __name__ == '__main__':
-    checking_str(input("Пожалуйста введите строку на проверку:\n"),input("Пожалуйста введите строку с которой сравнивают:\n"))
+
+    words_strora = input("Пожалуйста введите строку на проверку:\n")
+    words_compare = input("Пожалуйста введите строку с которой сравнивают:\n")
+    checking_str(words_strora,words_compare)
