@@ -1,4 +1,3 @@
-# Задание 1
 def count_min():
     print("\nРасчет минимального числа:")
     smallest = numbers[0]

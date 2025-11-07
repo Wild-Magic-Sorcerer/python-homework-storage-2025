@@ -1,7 +1,5 @@
-# Задание 4
-
 numbers = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
-counts = {}  # словарь
+counts = {}
 for number in numbers:
     if number in counts:
         counts[number] += 1  # если число уже есть в словаре
