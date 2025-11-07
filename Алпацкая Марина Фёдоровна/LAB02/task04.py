@@ -16,9 +16,6 @@ def checking_time(num: list):
         result.append(value_to_check)
     return result
 
-
-    return num
-
 def time(data: str):
     data = data.replace(".", " ")
     data = data.replace(":", " ")
