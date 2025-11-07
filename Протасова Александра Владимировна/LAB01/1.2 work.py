@@ -1,9 +1,31 @@
-# задание 2
 courses = ("Ботаника", "Зоология", "Математика")
 
-def count_min():
- if __name__ == '__main__':
-    grades = {}
+def count_min(grades=None):
+    smallest = None
+    if grades:
+        smallest = grades[0]
+        for n in grades:
+            if n < smallest:
+                smallest = n
+    return smallest
+
+def count_max(grades=None):
+    largest = None
+    if grades:
+         largest = grades[0]
+        for n in grades:
+            if n > largest:
+                largest = n
+    return largest
+
+    avg = sum(all_grades) / len(all_grades)
+
+    print(f"Минимум: {smallest}")
+    print(f"Максимум: {largest}")
+    print(f"Средний балл: {avg:.2f}")
+
+    if __name__ == '__main__':
+        grades = {}
     names = []
     while True:
         name = input("Имя студента (или 'стоп'): ")
@@ -26,25 +48,3 @@ def count_min():
                         print("Неверная оценка")
                 except ValueError:
                     print("Не число")
-
-    all_grades = [grade for student in grades.values() for grade in student.values()]
-
-    if grades:
-        smallest = grades[0]
-        for n in grades:
-            if n < smallest:
-                smallest = n
-        print(f"Мин: {smallest}")
-
-        largest = grades[0]
-        for n in grades:
-            if n > largest:
-                largest = n
-        print(f"Макс: {largest}")
-
-    avg = sum(all_grades) / len(all_grades)
-    print(f"Средний балл: {avg:.2f}")
-
-
-
-
