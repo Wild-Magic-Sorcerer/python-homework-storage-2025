@@ -1,50 +1,64 @@
 courses = ("Ботаника", "Зоология", "Математика")
 
-def count_min(grades=None):
-    smallest = None
-    if grades:
-        smallest = grades[0]
-        for n in grades:
-            if n < smallest:
-                smallest = n
-    return smallest
 
-def count_max(grades=None):
-    largest = None
-    if grades:
-         largest = grades[0]
-        for n in grades:
-            if n > largest:
-                largest = n
-    return largest
+def find_min(grade_list=None):
+    min_grade = None
+    if grade_list:
+        min_grade = grade_list[0]
+        for num in grade_list:
+            if num < min_grade:
+                min_grade = num
+    return min_grade
 
-    avg = sum(all_grades) / len(all_grades)
 
-    print(f"Минимум: {smallest}")
-    print(f"Максимум: {largest}")
-    print(f"Средний балл: {avg:.2f}")
+def find_max(grade_list=None):
+    max_grade = None
+    if grade_list:
+        max_grade = grade_list[0]
+        for num in grade_list:
+            if num > max_grade:
+                max_grade = num
+    return max_grade
 
-    if __name__ == '__main__':
-        grades = {}
-    names = []
+
+if __name__ == '__main__':
+    student_grades = {}
+    student_names = []
+
     while True:
-        name = input("Имя студента (или 'стоп'): ")
-        if name == "стоп":
+        name_input = input("Имя студента (или 'стоп'): ")
+        if name_input == "стоп":
             break
-        names.append(name)
-        grades[name] = {}
+        student_names.append(name_input)
+        student_grades[name_input] = {}
 
-    for course in courses:
-        print(f"\nОценки студента: {name}")
-        for name in names:
+    for student_name in student_names:
+        print(f"\nОценки студента: {student_name}")
+        for course in courses:
             while True:
                 try:
-                    input_from_usr = input(f"Оценка по {course} (3-5): ")
-                    grade = int(input_from_usr)
-                    if 3 <= grade <= 5:
-                        grades[name][course] = grade
+                    user_input = input(f"Оценка по {course} (3-5): ")
+                    grade_value = int(user_input)
+                    if 3 <= grade_value <= 5:
+                        student_grades[student_name][course] = grade_value
                         break
                     else:
                         print("Неверная оценка")
                 except ValueError:
                     print("Не число")
+
+    for course in courses:
+        course_grade_list = []
+        for student_name in student_names:
+            if course in student_grades[student_name]:
+                course_grade_list.append(student_grades[student_name][course])
+
+        if course_grade_list:
+            min_value = find_min(course_grade_list)
+            max_value = find_max(course_grade_list)
+            average = sum(course_grade_list) / len(course_grade_list)
+
+            print(f"\n{course}:")
+            print(f"  Минимум: {min_value}")
+            print(f"  Максимум: {max_value}")
+            print(f"  Средний балл: {average:.2f}")
