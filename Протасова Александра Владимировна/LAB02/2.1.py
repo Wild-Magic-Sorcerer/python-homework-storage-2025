@@ -1,7 +1,5 @@
 def check_palindrome_simple(text):
-
     original_text = text
-
     reversed_text = text[::-1]
 
     if text == reversed_text:
@@ -10,7 +8,6 @@ def check_palindrome_simple(text):
     else:
         print(f"Строка '{original_text}' НЕ является палиндромом.")
 
-        # Находим первое отличие
         n = len(text)
         first_diff_index = -1
         for i in range(n):
@@ -25,13 +22,3 @@ def check_palindrome_simple(text):
         else:
             print("Не удалось найти конкретное расхождение.")
         return False
-
-
-if __name__ == "__main__":
-
-    while True:
-        user_input = input("\nВведите строку для проверки: ")
-        if user_input.lower() == 'выход':
-            break
-
-    print("Программа завершена.")

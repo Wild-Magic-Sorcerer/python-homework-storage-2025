@@ -1,7 +1,4 @@
-import string
-
 def count_text_elements(text):
-
     counts = {
         "words": 0,
         "letters": 0,
@@ -22,20 +19,12 @@ def count_text_elements(text):
             counts["digits"] += 1
         elif char.isspace():
             counts["spaces"] += 1
-        elif char in string.punctuation:
+        else:
             counts["punctuation"] += 1
 
     return counts
 
 if __name__ == "__main__":
-
-    test_strings = []
-
-    for i, text in enumerate(test_strings, 1):
-        print(f"Тест {i}: '{text}'")
-        result = count_text_elements(text)
-        print(f"Результат: {result}")
-
     user_input = input("\nВведите строку для анализа (или нажмите Enter для выхода): ")
     while user_input:
         result = count_text_elements(user_input)

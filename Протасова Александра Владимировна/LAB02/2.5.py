@@ -1,15 +1,13 @@
-import string
-
-
 def process_string(text):
+    punctuation = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
 
-    for punctuation_char in string.punctuation:
-        text = text.replace(punctuation_char, '')
-    return text.lower()
+    text = text.lower()
+    for char in punctuation:
+        text = text.replace(char, '')
 
+    return text
 
 def get_unique_words(text1, text2):
-
     processed1 = process_string(text1)
     processed2 = process_string(text2)
 
@@ -23,7 +21,6 @@ def get_unique_words(text1, text2):
 
 
 def main():
-
     str1 = input("Введите первую строку: ")
     str2 = input("Введите вторую строку: ")
 
@@ -36,6 +33,7 @@ def main():
             print(f"Слова, которые есть в первой строке, но отсутствуют во второй: {', '.join(unique1)}")
         if unique2:
             print(f"Слова, которые есть во второй строке, но отсутствуют в первой: {', '.join(unique2)}")
+
 
 if __name__ == "__main__":
     main()
