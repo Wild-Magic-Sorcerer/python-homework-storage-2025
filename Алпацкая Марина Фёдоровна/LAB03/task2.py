@@ -1,4 +1,4 @@
-def sum_odd_even (list_num: list):
+def sum_odd_even(list_num: list):
     odd: int = 0
     even: int = 0
     for num in list_num:

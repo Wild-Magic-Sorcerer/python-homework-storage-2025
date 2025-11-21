@@ -4,7 +4,7 @@ def product_of_numbers(*args):
     if not num_list:
         return None
     for iteratcy in num_list:
-        result *= int(iteratcy)
+        result *= iteratcy
     return result
 
 
