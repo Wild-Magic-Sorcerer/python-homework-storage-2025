@@ -1,11 +1,11 @@
 def sum_odd_even (list_num: list):
-    odd : int = 0
-    even : int = 0
+    odd: int = 0
+    even: int = 0
     for num in list_num:
         if num%2 == 0:
             even += num
-            continue
-        odd += num
+        else:
+            odd += num
     return odd,even
 
 if __name__ == '__main__':
@@ -20,5 +20,5 @@ if __name__ == '__main__':
         except ValueError:
             print("Ошибка это не число")
 
-    sum_numers:tuple = (sum_odd_even(numers))
-    print(f'Сумма нечётных цифр = "{sum_numers[0]}"\nСумма чётных цифр = "{sum_numers[1]}"')
+    sum_odd, sum_even = sum_odd_even(numers)
+    print(f'Сумма нечётных цифр = "{sum_odd}"\nСумма чётных цифр = "{sum_even}"')

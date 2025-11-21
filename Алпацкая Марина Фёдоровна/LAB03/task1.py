@@ -1,14 +1,6 @@
 def sifter(lines_list:list):
-    dict_lines: dict[int:str] = {}
-    list_length =[]
-    new_line = []
-    for lin in lines_list:
-        dict_lines[len(lin)] = lin
-        list_length.append(len(lin))
-    average_value = sum(list_length)/len(lines_list)
-    for check_num in dict_lines:
-        if check_num > average_value:
-            new_line.append(dict_lines[check_num])
+    average_value = sum([len(long) for long in lines_list])/2
+    new_line = [lin for lin in lines_list if len(lin)>= average_value]
     return new_line
 
 if __name__ == '__main__':

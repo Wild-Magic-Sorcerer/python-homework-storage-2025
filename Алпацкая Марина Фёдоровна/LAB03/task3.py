@@ -1,15 +1,12 @@
 def product_of_numbers(*args):
     result:int =1
-    temp = 1
-    for iteratcy in args:
-        try:
-            result *= int(iteratcy)
-            temp = 0
-        except ValueError:
-            continue
-    if temp == 0:
-        return result
-    return None
+    num_list = [num_int for num_int in args if isinstance(num_int, int)]
+    if not num_list:
+        return None
+    for iteratcy in num_list:
+        result *= int(iteratcy)
+    return result
+
 
 if __name__ == '__main__':
     product_numbers = product_of_numbers(32,6,"hjfg")
