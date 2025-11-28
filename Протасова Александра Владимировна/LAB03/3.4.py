@@ -13,7 +13,6 @@ def find_strings(**kwargs):
 
     return result
 
-
 if __name__ == "__main__":
     print(find_strings(a="hello", b="world", c="amazing"))
     print(find_strings(x="hi", y="bye"))

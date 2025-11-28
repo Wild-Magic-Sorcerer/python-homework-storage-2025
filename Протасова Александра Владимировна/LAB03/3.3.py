@@ -10,11 +10,7 @@ def multiply_integers(*args):
 
     return result
 
-
-def main():
+if __name__ == "__main__":
     print(multiply_integers(2, 3, "hello", 4.5, 5))
     print(multiply_integers(1, 2, 3, 4, 5))
     print(multiply_integers("hello", 3.14, [1, 2]))
-
-if __name__ == "__main__":
-    main()
