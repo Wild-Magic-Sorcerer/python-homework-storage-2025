@@ -63,31 +63,29 @@ def count_sum(nums):
     print(f"Итоговая сумма всех чисел: {total_sum}")
     return total_sum
 
-
-with open("numbers.txt", "w") as file:
-    for j in range(10):
-        file.write(f"{random.randint(1, 100)}\n")
-
-
-numbers_list = []
-with open("numbers.txt", "r") as file:
-    for line in file:
-        numbers_list.append(int(line.strip()))
-
-print(f"Числа из файла: {numbers_list}")
-
 if __name__ == "__main__":
-    min_num = count_min(numbers_list)
-    max_num = count_max(numbers_list)
-    total = count_sum(numbers_list)
+    with open("numbers.txt", "w") as file:
+        for j in range(10):
+            file.write(f"{random.randint(1, 100)}\n")
 
-    avg_num = 0
-    if numbers_list:
-        avg_num = total / len(numbers_list)
-        print(f"\nСреднее арифметическое: {avg_num:.2f}")
-    else:
-        print("\nНевозможно вычислить среднее арифметическое - список пуст")
+            numbers_list = []
+            with open("numbers.txt", "r") as file_1:
+                for line in file:
+                    numbers_list.append(int(line.strip()))
 
-        print(f"Минимальное число: {min_num}")
-        print(f"Максимальное число: {max_num}")
-        print(f"Среднее арифметическое: {avg_num:.2f}")
+            print(f"Числа из файла: {numbers_list}")
+
+min_num = count_min(numbers_list)
+max_num = count_max(numbers_list)
+total = count_sum(numbers_list)
+
+avg_num = 0
+if numbers_list:
+    avg_num = total / len(numbers_list)
+    print(f"\nСреднее арифметическое: {avg_num:.2f}")
+else:
+    print("\nНевозможно вычислить среднее арифметическое - список пуст")
+
+    print(f"Минимальное число: {min_num}")
+    print(f"Максимальное число: {max_num}")
+    print(f"Среднее арифметическое: {avg_num:.2f}")
