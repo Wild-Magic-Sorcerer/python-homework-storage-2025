@@ -75,17 +75,17 @@ if __name__ == "__main__":
 
             print(f"Числа из файла: {numbers_list}")
 
-min_num = count_min(numbers_list)
-max_num = count_max(numbers_list)
-total = count_sum(numbers_list)
+    min_num = count_min(numbers_list)
+    max_num = count_max(numbers_list)
+    total = count_sum(numbers_list)
 
-avg_num = 0
-if numbers_list:
-    avg_num = total / len(numbers_list)
-    print(f"\nСреднее арифметическое: {avg_num:.2f}")
-else:
-    print("\nНевозможно вычислить среднее арифметическое - список пуст")
+    avg_num = 0
+    if numbers_list:
+        avg_num = total / len(numbers_list)
+        print(f"\nСреднее арифметическое: {avg_num:.2f}")
+    else:
+        print("\nНевозможно вычислить среднее арифметическое - список пуст")
 
-    print(f"Минимальное число: {min_num}")
-    print(f"Максимальное число: {max_num}")
-    print(f"Среднее арифметическое: {avg_num:.2f}")
+        print(f"Минимальное число: {min_num}")
+        print(f"Максимальное число: {max_num}")
+        print(f"Среднее арифметическое: {avg_num:.2f}")
