@@ -1,13 +1,17 @@
 from datetime import datetime
 
-def logger(login:str, time=datetime.now()):
+name_fail = 'log.txt'
+
+def logger(login:str, time=None):
+    if time == None:
+        time = datetime.now()
     with open('log.txt', 'a') as log:
         log.write(f'{login}, {time}\n')
-    return 'log.txt'
+    return None
 
 if __name__ == '__main__':
     user_login = input('Введите ваш логин: ')
-    login_fail = logger(user_login)
-    with open(login_fail,'r') as fail:
+    logger(user_login)
+    with open(name_fail,'r') as fail:
         login_read = fail.read()
         print(login_read)

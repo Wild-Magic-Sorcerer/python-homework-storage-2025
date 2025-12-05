@@ -1,4 +1,4 @@
-ten_random_number: list = ['6\n','8\n','1\n','-3\n','12\n','3\n','6\n','55\n','9\n','0\n']
+ten_random_number: list = ['6','8','1','-3','12','3','6','55','9','0']
 name_faila = 'numbers.txt'
 
 def number_chek(num: list):
@@ -8,10 +8,12 @@ def number_chek(num: list):
     return min_num,max_num,sum_num
 
 if __name__ == '__main__':
-    with open(name_faila,'w+') as numbers:
-        numbers.writelines(ten_random_number)
+    with open(name_faila,'w') as numbers:
+        for num in ten_random_number:
+            numbers.write(num + '\n')
 
     with open(name_faila) as num_line:
         list_number = num_line.readlines()
 
-    print(f'MAX: {number_chek(list_number)[1]}\nmin: {number_chek(list_number)[0]}\nСреднее значение: {number_chek(list_number)[2]}')
+    min_num_list, max_num_list, sum_num_list = number_chek(list_number)
+    print(f'MAX: {max_num_list}\nmin: {min_num_list}\nСреднее значение: {sum_num_list}')

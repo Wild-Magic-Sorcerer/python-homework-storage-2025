@@ -5,9 +5,9 @@ if __name__ == '__main__':
         list_text = text.readlines()
 
     for line in list_text:
-        if not line in unekum:
-                unekum.append(line)
-        else:
-                not_unekum.append(line)
+        if line not in unekum:
+            unekum.append(line)
+        elif line not in not_unekum:
+            not_unekum.append(line)
 
-    print(f'Повторы в файле: {set(not_unekum)}')
+    print(f'Повторы в файле: {not_unekum}')
