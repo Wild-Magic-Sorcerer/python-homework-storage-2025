@@ -3,7 +3,7 @@ from datetime import datetime
 name_fail = 'log.txt'
 
 def logger(login:str, time=None):
-    if time == None:
+    if not time:
         time = datetime.now()
     with open('log.txt', 'a') as log:
         log.write(f'{login}, {time}\n')
