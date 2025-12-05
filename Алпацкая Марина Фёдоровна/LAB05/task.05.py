@@ -1,9 +1,8 @@
 from datetime import datetime
 
 def logger(login:str, time=datetime.now()):
-    print(time)
     with open('log.txt', 'a') as log:
-        log.write(f'{login}, {time}')
+        log.write(f'{login}, {time}\n')
     return 'log.txt'
 
 if __name__ == '__main__':
