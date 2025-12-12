@@ -47,7 +47,7 @@ def print_results(avg, mn, mx):
     print('Максимальная оценка:', mx)
 
 
-def main():
+if __name__ == "__main__":
     while True:
         all_marks = []
         students = []
@@ -62,11 +62,7 @@ def main():
         if not students:
             print("Студенты не введены. Начинаем заново.\n")
             continue
-
-        avg, mn, mx = calculate_stats(all_marks)
-        print_results(avg, mn, mx)
         break
+    avg, mn, mx = calculate_stats(all_marks)
+    print_results(avg, mn, mx)
 
-
-if __name__ == "__main__":
-    main()
