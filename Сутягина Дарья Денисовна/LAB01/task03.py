@@ -1,4 +1,4 @@
-def main():
+if __name__ == "__main__":
     s = input("Введите слова через пробел: ").strip()
 
     words = s.split()
@@ -13,7 +13,3 @@ def main():
 
     print("Кортеж:", words_tuple)
     print("Количество уникальных слов:", count)
-
-
-if __name__ == "__main__":
-    main()
