@@ -21,6 +21,8 @@ class Manager(Employee):
 
     def hold_meeting(self):
         print(f'Проведём встречу через {self._time} часов')
+
+
 if __name__ == '__main__':
 
     name_person = input(f'Введите имя: ')

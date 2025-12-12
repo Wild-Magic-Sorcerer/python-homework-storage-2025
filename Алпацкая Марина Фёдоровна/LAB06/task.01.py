@@ -14,7 +14,6 @@ class Transport:
     def info (self):
         print(f'Скорость транспорта: {self.speed}')
         print(f'Мощьность транспорта: {self.capacity}')
-        return None
 
 class Bus(Transport):
     def __init__(self, speed, capacity,route_number):
@@ -43,4 +42,3 @@ if __name__ == '__main__':
 
     avto.info()
     bus.info()
-    

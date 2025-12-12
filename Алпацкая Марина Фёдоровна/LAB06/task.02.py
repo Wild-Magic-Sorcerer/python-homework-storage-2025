@@ -4,25 +4,41 @@ class BankAccount:
 
     def deposit(self,amount):
         self.__balans += amount
-        return self.__balans
 
     def withdraw(self,amount):
-        if amount < self.__balans:
+        if amount <= self.__balans:
             self.__balans -= amount
         else: print('У вас на счёте недостаточно средств')
-        return self.__balans
 
     def get_balance(self):
         return self.__balans
 
 if __name__ == '__main__':
-    balans_max = int(input(f'Введите баланс Макса: '))
+    while True:
+        balans_max_str = input(f'Введите баланс Макса: ')
+        try:
+            balans_max = int(balans_max_str)
+            break
+        except ValueError:
+            print("Ошибка, пожалуйста введите целочисленные значение")
     max_account = BankAccount(balans_max)
 
-    deposit_max = input(f'Введите сколько Макс положил денег на баланс: ')
+    while True:
+        deposit_max_str = input(f'Введите сколько Макс положил денег на баланс: ')
+        try:
+            deposit_max = int(deposit_max_str)
+            break
+        except ValueError:
+            print("Ошибка, пожалуйста введите целочисленные значение")
     max_account.deposit(int(deposit_max))
 
-    withdraw_max = input(f'Введите сколько снял Макс с баланса: ')
+    while True:
+        withdraw_max_str = input(f'Введите сколько снял Макс с баланса: ')
+        try:
+            withdraw_max = int(withdraw_max_str)
+            break
+        except ValueError:
+            print("Ошибка, пожалуйста введите целочисленные значение")
     max_account.withdraw(int(withdraw_max))
 
     print(f'Текуший баланс Макса: {max_account.get_balance()}')
