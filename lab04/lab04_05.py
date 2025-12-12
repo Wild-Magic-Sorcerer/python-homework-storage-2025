@@ -2,15 +2,16 @@
 # а после вызова исходной функции выводит "Функция выполнена."
 # Примените этот декоратор к функции, которая возвращает квадрат числа, и продемонстрируйте результат работы.
 
-x = int(input('Введите число '))
-def func(first_func):
-    def lust_func(*args):
-        print("Выполняется функция...")
-        first_func(*args)
-        print("Функция выполнена.")
-    return lust_func
+if __name__ == '__main__':
+    x = int(input('Введите число '))
+    def func(first_func):
+        def lust_func(*args):
+            print("Выполняется функция...")
+            first_func(*args)
+            print("Функция выполнена.")
+        return lust_func
 
-@func
-def quadro(x):
-    print(x**2)
-quadro(x)
+    @func
+    def quadro(x):
+        print(x**2)
+    quadro(x)
