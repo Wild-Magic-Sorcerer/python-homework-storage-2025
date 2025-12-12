@@ -18,8 +18,8 @@ if __name__ == "__main__":
     employee = Employee("Алиса", "разработчик")
     manager = Manager("Маша", "руководитель")
     print("Все объекты созданы\n")
-    people = [person, employee, manager]
-    for p in people:
+    for p in (person, employee, manager]):
+
         p.introduce()
         print()
     manager.hold_meeting()

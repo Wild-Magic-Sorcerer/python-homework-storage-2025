@@ -1,18 +1,21 @@
 class BankAccount:
-    def __init__(self, start_money=0):
-        self.__money = start_money
+    def __init__(self, start_money=None):
+        if not start_money:
+           self.__money = 0
+        else:
+           self.__money = start_money
+
     def add_money(self, amount):
         """Положить деньги на счет"""
         if amount > 0:
             self.__money += amount
-            return True
-        return False
     def take_money(self, amount):
         """Снять деньги со счета"""
         if 0 < amount <= self.__money:
             self.__money -= amount
-            return True
-        return False
+        else:
+           raise ...
+
     def show_money(self):
         """Показать баланс"""
         return self.__money
