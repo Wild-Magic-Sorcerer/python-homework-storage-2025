@@ -33,16 +33,16 @@ def find_max(numbers):
 
 
 def sum_numbers(nums):
+    if not nums:
+        raise ValueError("Список чисел пуст.")    
     total = 0
     for num in nums:
         total += num
     return total
 
-def main():
+    
+if __name__ == '__main__':
     numbers = get_numbers_from_user()
     print('Минимальное число:', find_min(numbers))
     print('Максимальное число:', find_max(numbers))
     print('Сумма всех чисел:', sum_numbers(numbers))
-
-if __name__ == '__main__':
-    main()
