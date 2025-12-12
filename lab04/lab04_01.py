@@ -3,6 +3,7 @@
 
 start = 1
 stop = 11
-our_lambda_func = lambda x: x % 2 == 0
-for i in range(start, stop):
-    print(f'Число {i} : {our_lambda_func(i)}')
+if __name__ == '__main__':
+    our_lambda_func = lambda x: x % 2 == 0
+    for i in range(start, stop):
+        print(f'Число {i} : {our_lambda_func(i)}')
