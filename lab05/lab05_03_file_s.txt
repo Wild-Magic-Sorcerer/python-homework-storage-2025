@@ -1,7 +1,11 @@
-dog
-dog
+cat
+cat
+eeee
 
 
+smth
+
 dog
+cat
 
 first
