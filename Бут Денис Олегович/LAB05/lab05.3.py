@@ -5,4 +5,8 @@ if __name__ == "__main__":
             file2.write(cat_in_file2)
     dog_in_file2 = cat_in_file2.replace("cat", "dog")
     with open("second_file_for_lab05.3.txt", "w") as file:
+
         file.write(dog_in_file2)
+
+
+
