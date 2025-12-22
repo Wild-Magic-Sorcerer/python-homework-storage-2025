@@ -1,31 +1,34 @@
 #!/usr/bin/env python3
-"""Простой логгер в файл с временной меткой."""
-
 from datetime import datetime
 from pathlib import Path
 
-LOG_FILE = Path(__file__).parent / "log.txt"
+LOG_FILE_PATH = Path(__file__).parent / "log.txt"
+TIMESTAMP_FORMAT = "%Y-%m-%d %H:%M:%S"
 
 
-def log(message: str) -> None:
-    """Записывает сообщение в лог."""
-    ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    entry = f"[{ts}] {message}\n"
+def write_log_entry(file_path: Path, message: str, timestamp: datetime | None = None) -> None:
+    if timestamp is None:
+        timestamp = datetime.now()
     
-    with open(LOG_FILE, "a", encoding="utf-8") as f:
-        f.write(entry)
-    print(f"Записано: {entry.strip()}")
+    formatted_time = timestamp.strftime(TIMESTAMP_FORMAT)
+    log_entry = f"[{formatted_time}] {message}\n"
+    
+    with open(file_path, "a", encoding="utf-8") as log_file:
+        log_file.write(log_entry)
+    
+    print(f"Записано в лог: {log_entry.strip()}")
 
 
 def main() -> None:
-    log("Старт")
+    write_log_entry(LOG_FILE_PATH, "Старт")
     
-    msg = input("Сообщение: ")
-    if msg.strip():
-        log(msg)
+    user_message = input("Введите сообщение для лога: ").strip()
+    if user_message:
+        write_log_entry(LOG_FILE_PATH, user_message)
     
-    log("Стоп")
-    print(f"\n{LOG_FILE.read_text(encoding='utf-8')}")
+    write_log_entry(LOG_FILE_PATH, "Стоп")
+    
+    print(f"\nПолное содержимое лога:\n{LOG_FILE_PATH.read_text(encoding='utf-8')}")
 
 
 if __name__ == "__main__":

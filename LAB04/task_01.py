@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-"""Lambda-функция для проверки чётности."""
-
 
 def main() -> None:
-    is_even = lambda x: x % 2 == 0
+    check_parity = lambda number: number % 2 == 0
     
-    print("Проверка 1-10:")
-    for n in range(1, 11):
-        print(f"  {n}: {'чёт' if is_even(n) else 'нечёт'}")
+    start_range = 1
+    end_range = 11
+    
+    print(f"Проверка чётности чисел от {start_range} до {end_range - 1}:")
+    for num in range(start_range, end_range):
+        parity_status = "чётное" if check_parity(num) else "нечётное"
+        print(f"  {num}: {parity_status}")
 
 
 if __name__ == "__main__":

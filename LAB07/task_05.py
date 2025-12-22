@@ -1,35 +1,42 @@
 #!/usr/bin/env python3
-"""CLI: факториал с verbose. Пример: python task_05.py 5 --verbose"""
-
 import argparse
 import sys
 
 
-def factorial(n: int, verbose: bool = False) -> int:
-    """Факториал с опциональным выводом шагов."""
-    result = 1
-    if verbose:
-        print(f"Вычисление {n}!:")
-    for i in range(1, n + 1):
-        result *= i
-        if verbose:
-            print(f"  {i}! = {result}")
-    return result
+def compute_factorial(value: int, detailed: bool = False) -> int:
+    factorial_result = 1
+    
+    if detailed:
+        print(f"Вычисление факториала {value}!:")
+    
+    for multiplier in range(1, value + 1):
+        factorial_result *= multiplier
+        if detailed:
+            print(f"  {multiplier}! = {factorial_result}")
+    
+    return factorial_result
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Факториал")
-    parser.add_argument("n", type=int)
-    parser.add_argument("-v", "--verbose", action="store_true")
+    parser = argparse.ArgumentParser(description="Вычисление факториала")
+    parser.add_argument("n", type=int, help="Число для вычисления факториала")
+    parser.add_argument(
+        "-v",
+        "--verbose",
+        action="store_true",
+        help="Подробный режим с выводом промежуточных результатов",
+    )
     args = parser.parse_args()
     
     if args.n < 0:
-        print("n >= 0", file=sys.stderr)
+        print("Ошибка: число должно быть неотрицательным", file=sys.stderr)
         return 1
     
-    result = factorial(args.n, args.verbose)
+    result = compute_factorial(args.n, args.verbose)
+    
     if not args.verbose:
         print(f"{args.n}! = {result}")
+    
     return 0
 
 

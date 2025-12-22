@@ -1,18 +1,20 @@
 #!/usr/bin/env python3
-"""Разбиение строки на слова по знакам препинания."""
-
 import re
 
+SPLIT_PATTERN = r"[.,?!\-\s]+"
 
-def split_words(text: str) -> list[str]:
-    """Разбивает по .,?!- и пробелам."""
-    return [w for w in re.split(r"[.,?!\-\s]+", text) if w]
+
+def tokenize_text(input_text: str) -> list[str]:
+    tokens = re.split(SPLIT_PATTERN, input_text)
+    return [token for token in tokens if token]
 
 
 def main() -> None:
-    text = input("Строка: ")
-    words = split_words(text)
-    print(f"Слова ({len(words)}): {words}")
+    user_input = input("Введите строку для разбиения на слова: ")
+    word_list = tokenize_text(user_input)
+    
+    print(f"Найдено слов: {len(word_list)}")
+    print(f"Список слов: {word_list}")
 
 
 if __name__ == "__main__":

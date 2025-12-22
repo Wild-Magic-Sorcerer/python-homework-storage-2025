@@ -1,21 +1,22 @@
 #!/usr/bin/env python3
-"""CLI: список строк с подсчётом. Пример: python task_03.py a b c --count"""
-
 import argparse
 import sys
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Строки")
-    parser.add_argument("strings", nargs="+")
-    parser.add_argument("-c", "--count", action="store_true")
+    parser = argparse.ArgumentParser(description="Обработка списка строк")
+    parser.add_argument("strings", nargs="+", help="Список строк для обработки")
+    parser.add_argument(
+        "-c", "--count", action="store_true", help="Вывести количество строк"
+    )
     args = parser.parse_args()
     
     if args.count:
-        print(f"\nКоличество: {len(args.strings)}")
+        print(f"Количество строк: {len(args.strings)}")
     else:
-        for s in args.strings:
-            print(s)
+        for string_item in args.strings:
+            print(string_item)
+    
     return 0
 
 

@@ -1,31 +1,35 @@
 #!/usr/bin/env python3
-"""Фильтрация kwargs: строки с >= 3 гласными."""
-
 from typing import Any
 
-VOWELS = frozenset("аеёиоуыэюяaeiouАЕЁИОУЫЭЮЯAEIOU")
+VOWEL_SET = frozenset("аеёиоуыэюяaeiouАЕЁИОУЫЭЮЯAEIOU")
+MIN_VOWEL_COUNT = 3
+
+def count_vowels_in_string(text: str) -> int:
+    return sum(1 for char in text if char in VOWEL_SET)
 
 
-def filter_by_vowels(**kwargs: Any) -> dict[str, str]:
-    """Возвращает только строки с >= 3 гласными."""
-    def vowel_count(s: str) -> int:
-        return sum(c in VOWELS for c in s)
+def filter_strings_with_vowels(**named_args: Any) -> dict[str, str]:
+    filtered: dict[str, str] = {}
     
-    return {k: v for k, v in kwargs.items()
-            if isinstance(v, str) and vowel_count(v) >= 3}
+    for key, value in named_args.items():
+        if isinstance(value, str) and count_vowels_in_string(value) >= MIN_VOWEL_COUNT:
+            filtered[key] = value
+    
+    return filtered
 
 
 def main() -> None:
-    data = {
-        "name": "Александр",      # 4 гласных
-        "city": "Москва",         # 2 гласных
-        "country": "Россия",      # 3 гласных
-        "age": 25,                # не строка
-        "greeting": "Привет",     # 2 гласных
-        "farewell": "До свидания",  # 5 гласных
+    sample_data = {
+        "name": "Александр",
+        "city": "Москва",
+        "country": "Россия",
+        "age": 25,
+        "greeting": "Привет",
+        "farewell": "До свидания",
     }
     
-    print(f"Фильтр (>= 3 гласных): {filter_by_vowels(**data)}")
+    result = filter_strings_with_vowels(**sample_data)
+    print(f"Аргументы со строками (>= {MIN_VOWEL_COUNT} гласных): {result}")
 
 
 if __name__ == "__main__":

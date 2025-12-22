@@ -1,24 +1,33 @@
 #!/usr/bin/env python3
-"""Копирование файла с заменой 'cat' на 'dog'."""
-
 from pathlib import Path
 
-SRC = Path(__file__).parent / "source.txt"
-DST = Path(__file__).parent / "destination.txt"
+SOURCE_FILE = Path(__file__).parent / "source.txt"
+DESTINATION_FILE = Path(__file__).parent / "destination.txt"
 
-SAMPLE = """The cat sat on the mat.
+SAMPLE_CONTENT = """The cat sat on the mat.
 My cat is very fluffy.
 I have a cat and a dog.
 """
 
+OLD_WORD = "cat"
+NEW_WORD = "dog"
+
+
+def copy_and_replace(
+    source: Path, destination: Path, old_text: str, new_text: str
+) -> str:
+    source_content = source.read_text(encoding="utf-8")
+    modified_content = source_content.replace(old_text, new_text)
+    destination.write_text(modified_content, encoding="utf-8")
+    return modified_content
+
 
 def main() -> None:
-    SRC.write_text(SAMPLE, encoding="utf-8")
-    print(f"Исходный:\n{SAMPLE}")
+    SOURCE_FILE.write_text(SAMPLE_CONTENT, encoding="utf-8")
+    print(f"Исходный файл:\n{SAMPLE_CONTENT}")
     
-    modified = SRC.read_text(encoding="utf-8").replace("cat", "dog")
-    DST.write_text(modified, encoding="utf-8")
-    print(f"Результат:\n{modified}")
+    result = copy_and_replace(SOURCE_FILE, DESTINATION_FILE, OLD_WORD, NEW_WORD)
+    print(f"Результат после замены '{OLD_WORD}' на '{NEW_WORD}':\n{result}")
 
 
 if __name__ == "__main__":

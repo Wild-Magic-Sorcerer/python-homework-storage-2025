@@ -1,30 +1,35 @@
 #!/usr/bin/env python3
-"""Произведение целочисленных аргументов из *args."""
-
 from typing import Any
 
+def is_valid_integer(value: Any) -> bool:
+    return isinstance(value, int) and not isinstance(value, bool)
 
-def multiply_integers(*args: Any) -> int | None:
-    """Произведение int-аргументов. None если их нет. bool исключается."""
-    ints = [a for a in args if isinstance(a, int) and not isinstance(a, bool)]
-    if not ints:
+
+def multiply_integer_args(*arguments: Any) -> int | None:
+    integer_values = [arg for arg in arguments if is_valid_integer(arg)]
+    
+    if not integer_values:
         return None
-    result = 1
-    for n in ints:
-        result *= n
-    return result
+    
+    product = 1
+    for value in integer_values:
+        product *= value
+    
+    return product
 
 
 def main() -> None:
-    tests = [
+    test_cases = [
         (1, 2, 3, 4),
         (1, "x", 2, 3.14, 4),
         ("a", 3.14, [1]),
         (True, 5, 10),
         (),
     ]
-    for args in tests:
-        print(f"{args} -> {multiply_integers(*args)}")
+    
+    for test_args in test_cases:
+        result = multiply_integer_args(*test_args)
+        print(f"{test_args} -> {result}")
 
 
 if __name__ == "__main__":

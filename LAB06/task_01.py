@@ -1,10 +1,6 @@
 #!/usr/bin/env python3
-"""Классы Transport и Bus с наследованием."""
-
 
 class Transport:
-    """Базовый транспорт."""
-    
     def __init__(self, speed: float, capacity: int) -> None:
         self.speed = speed
         self.capacity = capacity
@@ -14,22 +10,23 @@ class Transport:
 
 
 class Bus(Transport):
-    """Автобус с маршрутом."""
-    
     def __init__(self, speed: float, capacity: int, route: str) -> None:
         super().__init__(speed, capacity)
         self.route = route
     
     def info(self) -> None:
-        print(f"Автобус {self.route}: {self.speed} км/ч, мест: {self.capacity}")
+        print(
+            f"Автобус маршрута {self.route}: "
+            f"скорость {self.speed} км/ч, мест {self.capacity}"
+        )
 
 
 def main() -> None:
-    t = Transport(60, 4)
-    b = Bus(50, 40, "42")
+    transport = Transport(speed=60.0, capacity=4)
+    bus = Bus(speed=50.0, capacity=40, route="42")
     
-    t.info()
-    b.info()
+    transport.info()
+    bus.info()
 
 
 if __name__ == "__main__":

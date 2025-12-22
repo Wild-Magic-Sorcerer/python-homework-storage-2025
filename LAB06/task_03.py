@@ -1,21 +1,15 @@
 #!/usr/bin/env python3
-"""Цепочка наследования Person -> Employee -> Manager."""
-
 
 class Person:
-    """Человек."""
-    
     def __init__(self, name: str, profession: str) -> None:
         self.name = name
         self.profession = profession
     
     def introduce(self) -> None:
-        print(f"{self.name}, {self.profession}")
+        print(f"{self.name}, профессия: {self.profession}")
 
 
 class Employee(Person):
-    """Сотрудник."""
-    
     def __init__(self, name: str, profession: str, position: str) -> None:
         super().__init__(name, profession)
         self.position = position
@@ -26,9 +20,9 @@ class Employee(Person):
 
 
 class Manager(Employee):
-    """Менеджер отдела."""
-    
-    def __init__(self, name: str, profession: str, position: str, department: str) -> None:
+    def __init__(
+        self, name: str, profession: str, position: str, department: str
+    ) -> None:
         super().__init__(name, profession, position)
         self.department = department
     
@@ -41,14 +35,19 @@ class Manager(Employee):
 
 
 def main() -> None:
-    people = [
-        Person("Иван", "инженер"),
-        Employee("Мария", "программист", "Senior Developer"),
-        Manager("Алексей", "менеджер", "Team Lead", "Разработка"),
+    people_list = [
+        Person(name="Иван", profession="инженер"),
+        Employee(name="Мария", profession="программист", position="Senior Developer"),
+        Manager(
+            name="Алексей",
+            profession="менеджер",
+            position="Team Lead",
+            department="Разработка",
+        ),
     ]
     
-    for p in people:
-        p.introduce()
+    for person in people_list:
+        person.introduce()
         print()
 
 

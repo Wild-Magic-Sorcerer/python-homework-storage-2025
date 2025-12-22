@@ -1,27 +1,37 @@
 #!/usr/bin/env python3
-"""Преобразование: гласные в верхний регистр, согласные в нижний."""
+VOWEL_CHARS = frozenset("аеёиоуыэюяaeiouАЕЁИОУЫЭЮЯAEIOU")
+CONSONANT_CHARS = frozenset(
+    "бвгджзйклмнпрстфхцчшщbcdfghjklmnpqrstvwxyz"
+    "БВГДЖЗЙКЛМНПРСТФХЦЧШЩBCDFGHJKLMNPQRSTVWXYZ"
+)
 
-VOWELS = frozenset("аеёиоуыэюяaeiouАЕЁИОУЫЭЮЯAEIOU")
-CONSONANTS = frozenset("бвгджзйклмнпрстфхцчшщbcdfghjklmnpqrstvwxyz"
-                       "БВГДЖЗЙКЛМНПРСТФХЦЧШЩBCDFGHJKLMNPQRSTVWXYZ")
+
+def is_vowel(character: str) -> bool:
+    return character in VOWEL_CHARS
 
 
-def transform(text: str) -> str:
-    """Гласные -> upper, согласные -> lower."""
-    result = []
-    for ch in text:
-        if ch in VOWELS:
-            result.append(ch.upper())
-        elif ch in CONSONANTS:
-            result.append(ch.lower())
+def is_consonant(character: str) -> bool:
+    return character in CONSONANT_CHARS
+
+
+def transform_case(input_string: str) -> str:
+    transformed_chars: list[str] = []
+    
+    for char in input_string:
+        if is_vowel(char):
+            transformed_chars.append(char.upper())
+        elif is_consonant(char):
+            transformed_chars.append(char.lower())
         else:
-            result.append(ch)
-    return "".join(result)
+            transformed_chars.append(char)
+    
+    return "".join(transformed_chars)
 
 
 def main() -> None:
-    text = input("Строка: ")
-    print(f"Результат: {transform(text)}")
+    user_input = input("Введите строку для преобразования: ")
+    result = transform_case(user_input)
+    print(f"Результат: {result}")
 
 
 if __name__ == "__main__":

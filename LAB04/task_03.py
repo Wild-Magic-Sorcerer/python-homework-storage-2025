@@ -1,15 +1,13 @@
 #!/usr/bin/env python3
-"""Использование reduce + lambda для произведения элементов."""
-
 from functools import reduce
 
-
 def main() -> None:
-    numbers = list(range(1, 11))
-    product = reduce(lambda a, b: a * b, numbers)
+    number_sequence = list(range(1, 11))
+    multiply = lambda x, y: x * y
+    total_product = reduce(multiply, number_sequence)
     
-    print(f"Числа: {numbers}")
-    print(f"Произведение: {product}")
+    print(f"Исходный список: {number_sequence}")
+    print(f"Произведение всех элементов: {total_product}")
 
 
 if __name__ == "__main__":

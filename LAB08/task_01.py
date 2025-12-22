@@ -1,26 +1,46 @@
 #!/usr/bin/env python3
-"""Поиск телефона формата +x(xxx)x-xx-xx с помощью regex."""
-
 import re
+from typing import TypedDict
 
 
-def find_phone(text: str) -> dict[str, str] | None:
-    """Ищет телефон, возвращает dict с компонентами или None."""
-    m = re.search(r"\+(\d)\((\d{3})\)(\d-\d{2}-\d{2})", text)
-    if not m:
+class PhoneComponents(TypedDict):
+    country: str
+    city: str
+    number: str
+    full: str
+
+
+PHONE_PATTERN = r"\+(\d)\((\d{3})\)(\d-\d{2}-\d{2})"
+
+
+def extract_phone_number(input_text: str) -> PhoneComponents | None:
+    match = re.search(PHONE_PATTERN, input_text)
+    if not match:
         return None
-    return {"country": m.group(1), "city": m.group(2), "number": m.group(3), "full": m.group(0)}
+    
+    return {
+        "country": match.group(1),
+        "city": match.group(2),
+        "number": match.group(3),
+        "full": match.group(0),
+    }
+
+
+def display_phone_info(phone_data: PhoneComponents) -> None:
+    print(f"Найден номер: {phone_data['full']}")
+    print(f"  Код страны: +{phone_data['country']}")
+    print(f"  Код города: {phone_data['city']}")
+    print(f"  Номер абонента: {phone_data['number']}")
 
 
 def main() -> None:
-    text = input("Строка: ")
-    phone = find_phone(text)
+    user_input = input("Введите строку для поиска номера телефона: ")
+    phone_info = extract_phone_number(user_input)
     
-    if not phone:
-        print("Не найден")
+    if phone_info is None:
+        print("Номер телефона не найден")
     else:
-        print(f"Найден: {phone['full']}")
-        print(f"  Страна: +{phone['country']}, город: {phone['city']}")
+        display_phone_info(phone_info)
 
 
 if __name__ == "__main__":

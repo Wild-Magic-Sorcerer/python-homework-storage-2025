@@ -1,24 +1,36 @@
 #!/usr/bin/env python3
-"""CLI: копирование файла. Пример: python task_04.py -i src.txt -o dst.txt"""
-
 import argparse
 import sys
 from pathlib import Path
 
 
+def copy_file(source_path: Path, destination_path: Path) -> bool:
+    if not source_path.exists():
+        return False
+    
+    file_content = source_path.read_text(encoding="utf-8")
+    destination_path.write_text(file_content, encoding="utf-8")
+    return True
+
+
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Копирование")
-    parser.add_argument("-i", "--input", required=True, dest="src")
-    parser.add_argument("-o", "--output", required=True, dest="dst")
+    parser = argparse.ArgumentParser(description="Копирование файла")
+    parser.add_argument(
+        "-i", "--input", required=True, dest="src", help="Путь к исходному файлу"
+    )
+    parser.add_argument(
+        "-o", "--output", required=True, dest="dst", help="Путь к целевому файлу"
+    )
     args = parser.parse_args()
     
-    src, dst = Path(args.src), Path(args.dst)
-    if not src.exists():
-        print(f"Файл не найден: {src}", file=sys.stderr)
+    source = Path(args.src)
+    destination = Path(args.dst)
+    
+    if not copy_file(source, destination):
+        print(f"Ошибка: файл не найден: {source}", file=sys.stderr)
         return 1
     
-    dst.write_text(src.read_text(encoding="utf-8"), encoding="utf-8")
-    print(f"OK: {src} -> {dst}")
+    print(f"Успешно: {source} -> {destination}")
     return 0
 
 

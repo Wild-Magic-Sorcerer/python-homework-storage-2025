@@ -1,20 +1,18 @@
 #!/usr/bin/env python3
-"""Сумма чётных и нечётных чисел списка."""
 
-
-def sum_odd_even(numbers: list[int]) -> tuple[int, int]:
-    """Возвращает (сумма нечётных, сумма чётных)."""
-    odd = sum(n for n in numbers if n % 2 != 0)
-    even = sum(n for n in numbers if n % 2 == 0)
-    return odd, even
+def calculate_parity_sums(number_list: list[int]) -> tuple[int, int]:
+    odd_sum = sum(num for num in number_list if num % 2 == 1)
+    even_sum = sum(num for num in number_list if num % 2 == 0)
+    return odd_sum, even_sum
 
 
 def main() -> None:
-    numbers = list(range(1, 16))
-    odd, even = sum_odd_even(numbers)
+    number_sequence = list(range(1, 16))
+    sum_odd, sum_even = calculate_parity_sums(number_sequence)
     
-    print(f"Список: {numbers}")
-    print(f"Нечётные: {odd}, чётные: {even}")
+    print(f"Исходный список: {number_sequence}")
+    print(f"Сумма нечётных чисел: {sum_odd}")
+    print(f"Сумма чётных чисел: {sum_even}")
 
 
 if __name__ == "__main__":

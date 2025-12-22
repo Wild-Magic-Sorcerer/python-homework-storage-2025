@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
-"""Использование map + lambda для получения длин строк."""
-
 
 def main() -> None:
-    words = ["apple", "banana", "cherry"]
-    lengths = list(map(lambda s: len(s), words))
+    word_list = ["apple", "banana", "cherry"]
+    get_length = lambda text: len(text)
+    length_list = list(map(get_length, word_list))
     
-    print(f"Слова: {words}")
-    print(f"Длины: {lengths}")
+    print(f"Исходный список: {word_list}")
+    print(f"Длины строк: {length_list}")
 
 
 if __name__ == "__main__":
