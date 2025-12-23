@@ -1,1 +1,0 @@
-https://github.com/Marina-Alp/coers_library_py
