@@ -24,7 +24,6 @@ class Manager(Employee):
 
 
 if __name__ == '__main__':
-
     name_person = input(f'Введите имя: ')
     profession_person = input(f'Введите профессию: ')
     post_person = input(f'Введите должность: ')

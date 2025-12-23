@@ -30,7 +30,8 @@ if __name__ == '__main__':
             break
         except ValueError:
             print("Ошибка, пожалуйста введите целочисленные значение")
-    max_account.deposit(int(deposit_max))
+    max_account.deposit(deposit_max)
+
 
     while True:
         withdraw_max_str = input(f'Введите сколько снял Макс с баланса: ')
@@ -39,6 +40,7 @@ if __name__ == '__main__':
             break
         except ValueError:
             print("Ошибка, пожалуйста введите целочисленные значение")
-    max_account.withdraw(int(withdraw_max))
+    max_account.withdraw(withdraw_max)
+
 
     print(f'Текуший баланс Макса: {max_account.get_balance()}')

@@ -28,7 +28,6 @@ class Bus(Transport):
         print(f'Скорость автобуса: {self.speed} км/ч')
         print(f'Мощьность автобуса: {self.capacity} лошадиных сил')
         print(f'Автобус следует моршруту № {self.route_number}')
-        return None
 
 if __name__ == '__main__':
     speed_avto = input(f'Введите скорость транспорта: ')
