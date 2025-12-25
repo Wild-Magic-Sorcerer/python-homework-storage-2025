@@ -4,7 +4,7 @@ def calculate_big_one(def_for_big_num):
     biggest_num = int(def_for_big_num[0])
     for num in def_for_big_num:
         if num > biggest_num:
-            biggest_num= num
+            biggest_num = num
     return biggest_num
 
 
@@ -38,4 +38,5 @@ if __name__ == "__main__":
         print( "Наибольшее число =",calculate_big_one(list_of_numbs),"\n"
                "Наименьшее число =",calculate_little_one(list_of_numbs),"\n"
                "Среднее чисел =",average(list_of_numbs))
+
 
