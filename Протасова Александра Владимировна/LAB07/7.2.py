@@ -1,34 +1,24 @@
-import sys
+import argparse
 
 if __name__ == "__main__":
-    args = sys.argv[1:]
+    parser = argparse.ArgumentParser()
+    parser.add_argument("x", type=float)
+    parser.add_argument("y", type=float)
+    parser.add_argument("--operation", "-op", choices=["add", "sub", "mul", "div"])
 
-    if len(args) < 2:
-        print("Ошибка: нужно передать два числа.")
-        sys.exit(1)
+    args = parser.parse_args()
 
-    try:
-        x = float(args[0])
-        y = float(args[1])
-    except ValueError:
-        print("Ошибка: оба аргумента должны быть числами.")
-        sys.exit(1)
-
-    if len(args) >= 3:
-        operation = args[2]
-
-        if operation == 'add':
-            print(f"{x} + {y} = {x + y}")
-        elif operation == 'sub':
-            print(f"{x} - {y} = {x - y}")
-        elif operation == 'mul':
-            print(f"{x} * {y} = {x * y}")
-        elif operation == 'div':
-            if y == 0:
+    if args.operation is None:
+        print(f"x = {args.x}, y = {args.y}")
+    else:
+        if args.operation == "add":
+            print(f"{args.x} + {args.y} = {args.x + args.y}")
+        elif args.operation == "sub":
+            print(f"{args.x} - {args.y} = {args.x - args.y}")
+        elif args.operation == "mul":
+            print(f"{args.x} * {args.y} = {args.x * args.y}")
+        elif args.operation == "div":
+            if args.y == 0:
                 print("Ошибка: деление на ноль!")
             else:
-                print(f"{x} / {y} = {x / y}")
-        else:
-            print(f"Неизвестная операция '{operation}'. x = {x}, y = {y}")
-    else:
-        print(f"x = {x}, y = {y}")
+                print(f"{args.x} / {args.y} = {args.x / args.y}")

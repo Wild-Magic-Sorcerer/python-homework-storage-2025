@@ -1,14 +1,14 @@
-import sys
+import argparse
 
 if __name__ == "__main__":
-    args = sys.argv[1:]
+    parser = argparse.ArgumentParser()
+    parser.add_argument("strings", nargs="*")
+    parser.add_argument("-c", "--count", action="store_true")
 
-    if not args:
-        exit()
+    args = parser.parse_args()
 
-    if args[-1] == "-c":
-        print(len(args) - 1)
-
+    if args.count:
+        print(len(args.strings))
     else:
-        for s in args:
+        for s in args.strings:
             print(s)

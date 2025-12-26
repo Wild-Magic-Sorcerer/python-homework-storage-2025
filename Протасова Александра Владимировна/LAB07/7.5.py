@@ -1,39 +1,26 @@
-import sys
+import argparse
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Использование: --verbose")
-        sys.exit(1)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("number", type=int)
+    parser.add_argument("--verbose", "-v", action="store_true")
 
-    verbose = '--verbose' in sys.argv
+    args = parser.parse_args()
 
-    number = None
-    for arg in sys.argv[1:]:
-        if arg != '--verbose':
-            try:
-                number = int(arg)
-                break
-            except ValueError:
-                pass
-
-    if number is None:
-        print("Ошибка: не указано число")
-        sys.exit(1)
-
-    if number < 0:
-        print("Ошибка: факториал определен только для неотрицательных чисел")
-        sys.exit(1)
+    if args.number < 0:
+        print("Ошибка: факториал только для неотрицательных чисел")
+        exit()
 
     result = 1
-    if verbose:
-        print(f"Вычисление факториала {number}!")
+    if args.verbose:
+        print(f"Вычисление факториала {args.number}!")
 
-    for i in range(1, number + 1):
+    for i in range(1, args.number + 1):
         result *= i
-        if verbose:
+        if args.verbose:
             print(f"  {i}! = {result}")
 
-    if verbose:
-        print(f"\nРезультат: {number}! = {result}")
+    if args.verbose:
+        print(f"\nРезультат: {args.number}! = {result}")
     else:
-        print(f"{number}! = {result}")
+        print(f"{args.number}! = {result}")

@@ -1,10 +1,9 @@
-import sys
+import argparse
 
 if __name__ == "__main__":
 
-    if len(sys.argv) < 2:
-        print("Ошибка: необходимо указать имя пользователя")
-        sys.exit(1)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("username")
+    args = parser.parse_args()
 
-    username = sys.argv[1]
-    print(f"Привет, {username}!")
+    print(f"Привет, {args.username}!")

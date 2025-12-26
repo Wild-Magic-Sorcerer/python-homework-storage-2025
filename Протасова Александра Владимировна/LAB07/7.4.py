@@ -1,26 +1,19 @@
-import sys
+import argparse
 
 if __name__ == "__main__":
-    args = sys.argv
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--input", required=True)
+    parser.add_argument("--output", required=True)
 
-    if '--input' not in args or '--output' not in args:
-        print("Использование: --input, --output ")
-        sys.exit(1)
-
-    input_index = args.index('--input')
-    output_index = args.index('--output')
-
-    input_file = args[input_index + 1]
-    output_file = args[output_index + 1]
+    args = parser.parse_args()
 
     try:
-        with open(input_file, 'r') as f:
-            content = f.read()
+        with open(args.input, 'r') as f_in:
+            content = f_in.read()
 
-        with open(output_file, 'w') as f:
-            f.write(content)
+        with open(args.output, 'w') as f_out:
+            f_out.write(content)
 
-        print(f"Файл успешно скопирован из '{input_file}' в '{output_file}'")
-
+        print(f"Файл скопирован из '{args.input}' в '{args.output}'")
     except FileNotFoundError:
-        print(f"Ошибка: файл '{input_file}' не найден")
+        print(f"Файл '{args.input}' не найден")
