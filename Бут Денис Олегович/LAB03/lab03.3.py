@@ -13,3 +13,6 @@ def multiplying_args (*args):
 if __name__ == "__main__":
     list_for_def = [False,1,"ss",2,(1,4),4]
     print(multiplying_args(*list_for_def))
+
+
+
