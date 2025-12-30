@@ -14,3 +14,5 @@ def factorial_rec(number):
 
 if __name__ == '__main__':
     print(factorial_rec(5))
+
+
