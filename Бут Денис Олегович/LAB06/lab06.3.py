@@ -29,3 +29,5 @@ if __name__ == "__main__":
     for person in some_people:
         print(person.introduce())
     print(some_person.hold_meeting())
+
+
