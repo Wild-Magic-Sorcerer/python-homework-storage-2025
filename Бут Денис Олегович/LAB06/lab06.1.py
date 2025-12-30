@@ -21,4 +21,8 @@ if __name__ == '__main__':
     Plane = Transport(200,67)
     Plane.info()
     Some_bus = Bus(120,28,2)
+
+
+    
+
     Some_bus.info()
