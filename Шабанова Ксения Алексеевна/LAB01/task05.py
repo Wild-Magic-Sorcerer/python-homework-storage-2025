@@ -1,11 +1,8 @@
-def main():
+# Создаем исходный список от -10 до 10
+original_list = list(range(-10, 11))
+print(f"Исходный список: {original_list}")
 
-    numbers = list(range(-10, 11))
+# Генератор списка: берем x, если x делится на 3 без остатка и x не ноль
+multiples_of_three = [x for x in original_list if x % 3 == 0 and x != 0]
 
-    multiples_of_3 = [x for x in numbers if x % 3 == 0]
-
-    print(f"Исходный список: {numbers}")
-    print(f"Числа, кратные 3: {multiples_of_3}")
-
-if __name__ == "__main__":
-    main()
+print(f"Числа, кратные 3: {multiples_of_three}")

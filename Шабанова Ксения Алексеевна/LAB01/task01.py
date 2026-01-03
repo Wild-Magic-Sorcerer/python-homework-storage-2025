@@ -1,25 +1,16 @@
-def main():
-    numbers = []
+numbers = []
+print("Введите 10 целых чисел:")
 
-    print("Введите 10 целых чисел:")
+while len(numbers) < 10:
+    user_input = input(f"Введите число №{len(numbers) + 1}: ")
+    # Проверяем, число ли это 
+    if user_input.lstrip('-').isdigit():
+        num = int(user_input)
+        numbers.append(num)
+    else:
+        print("Это не целое число. Попробуйте еще раз!")
 
-    while len(numbers) < 10:
-        try:
-            user_input = input(f"Число {len(numbers) + 1}: ")
-            number = int(user_input)
-            numbers.append(number)
-        except ValueError:
-            print("Что-то не так, введите целое число.")
-
-    min_number = min(numbers)
-    max_number = max(numbers)
-    total_sum = sum(numbers)
-
-    print("\nРезультаты:")
-    print(f"Список чисел: {numbers}")
-    print(f"Минимальное число: {min_number}")
-    print(f"Максимальное число: {max_number}")
-    print(f"Сумма всех чисел: {total_sum}")
-
-if __name__ == "__main__":
-    main()
+print("\nРезультаты:")
+print(f"Минимальное число: {min(numbers)}")
+print(f"Максимальное число: {max(numbers)}")
+print(f"Сумма всех чисел: {sum(numbers)}")

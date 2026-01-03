@@ -1,18 +1,14 @@
-def main():
+# заданный список (константа)
+NUMBERS_LIST = [1, 2, 3, 2, 1, 4, 2, 5, 1, 1, 3]
 
-    numbers = [1, 2, 3, 2, 4, 1, 5, 2, 3, 1, 4, 4, 5]
+count_dict = {}
 
-    frequency = {}
+for num in NUMBERS_LIST:
+    if num in count_dict:
+        count_dict[num] += 1
+    else:
+        count_dict[num] = 1
 
-    for num in numbers:
-        if num in frequency:
-            frequency[num] += 1
-        else:
-            frequency[num] = 1
-
-    print("Число - Количество:")
-    for num, count in sorted(frequency.items()):
-        print(f"{num} — {count}")
-
-if __name__ == "__main__":
-    main()
+print("Результаты подсчета:")
+for number, count in count_dict.items():
+    print(f"{number} — {count}")

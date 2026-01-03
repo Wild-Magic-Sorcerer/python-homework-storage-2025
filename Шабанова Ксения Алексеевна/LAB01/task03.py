@@ -1,13 +1,11 @@
-def main():
-    input_string = input("Введите строку слов через пробелы: ")
+words_input = input("Введите слова через пробел: ")
+# Создаем список слов, убирая лишние пробелы по краям
+words_list = words_input.split()
 
-    words_tuple = tuple(input_string.split())
+# Сохраняем в кортеж
+words_tuple = tuple(words_list)
+print(f"Ваш кортеж: {words_tuple}")
 
-    unique_words = set(words_tuple)
-    unique_count = len(unique_words)
-
-    print(f"\nКортеж слов: {words_tuple}")
-    print(f"Количество уникальных слов: {unique_count}")
-
-if __name__ == "__main__":
-    main()
+# Считаем уникальные слова
+unique_words = set(word.lower() for word in words_list)
+print(f"Количество уникальных слов: {len(unique_words)}")

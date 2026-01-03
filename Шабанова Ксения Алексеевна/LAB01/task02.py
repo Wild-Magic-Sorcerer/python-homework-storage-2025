@@ -1,35 +1,34 @@
-def main():
-    courses = ["Вышмат", "Философия", "Физика"]
-    students = {}
+courses = ["Высшая математика", "Программирование python", "Зоология"]
 
-    print("Введите имена студентов и оценки (3-5). Для выхода: 'стоп'")
+count_students = int(input("Введите количество студентов для оценки: "))
 
-    while True:
-        name = input("Имя студента: ").strip()
-        if name.lower() == 'стоп':
-            break
-        if not name or name in students:
-            continue
+all_marks = [] # Список для хранения вообще всех оценок всех студентов
 
-        grades = {}
-        for course in courses:
-            while True:
-            try:
-                    grade = int(input(f"{course}: "))
-            if 3 <= grade <= 5:
-                    grades[course] = grade
-            break
-            except:
-            pass
+for i in range(count_students):
+    name = input(f"\nВведите имя студента №{i+1}: ")
+    
+    print(f"Введите оценки студента {name} (от 3 до 5):")
+    for course in courses:
+        while True:
+            mark_input = input(f"  {course}: ")
+            
+            # Проверка
+            if mark_input.isdigit():
+                mark = int(mark_input)
+                if 3 <= mark <= 5:
+                    all_marks.append(mark)
+                    break
+                else:
+                    print("    Ошибка: Оценка должна быть от 3 до 5!")
+            else:
+                print("    Ошибка: Введите целое число!")
 
-        students[name] = grades
-
-        all_grades = [grade for grades in students.values() for grade in grades.values()]
-
-    if all_grades:
-        print(f"\nСредний балл: {sum(all_grades)/len(all_grades):.2f}")
-        print(f"Минимальная оценка: {min(all_grades)}")
-        print(f"Максимальная оценка: {max(all_grades)}")
-
-if __name__ == "__main__":
-    main()
+# Вывод результатов
+if all_marks:
+    average = sum(all_marks) / len(all_marks)
+    print("\nИтоговая статистика по группе")
+    print(f"Средний балл по всем студентам: {average:.2f}")
+    print(f"Минимальная оценка: {min(all_marks)}")
+    print(f"Максимальная оценка: {max(all_marks)}")
+else:
+    print("\nОценки не были введены.")
