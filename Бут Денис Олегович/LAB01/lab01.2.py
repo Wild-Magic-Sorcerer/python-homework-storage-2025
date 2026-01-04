@@ -1,48 +1,55 @@
-from tkinter.font import names
-
-
 def calculate_biggest_value(dict_of_values):
     if not dict_of_values:
         return None
     greatest_value = None
-    for value in dict_of_values.values():
-        if not greatest_value:
-            greatest_value = value
-        else:
-            if greatest_value < value:
-                greatest_value = value
+    for some_value in dict_of_values.values():
+        if greatest_value is None:
+            greatest_value = some_value
+        elif greatest_value < some_value:
+                greatest_value = some_value
     return greatest_value
-
 
 def calculate_smallest_value(dict_of_values):
     if not dict_of_values:
         return None
     smallest_value = None
-    for value in dict_of_values.values():
-        if not smallest_value:
-            smallest_value = value
-    else:
-        if smallest_value > value:
-            smallest_value = value
+    for some_value in dict_of_values.values():
+        if smallest_value is None:
+            smallest_value = some_value
+        elif some_value < smallest_value:
+            smallest_value = some_value
     return smallest_value
 
-
 if __name__ == "__main__":
-    courses = (
-        "Higher mathematics",
-        "Physics",
-        "Zoology",
-        "Botany",
-    )
-    names=[]
-    while True:
-        student_name = input("Введите имя студента. N/n если всё.")
-        if student_name.lower() == "n" or student_name == "" :
-            break
-        names.append(student_name)
-    print(names)
-    result: dict[str: dict[str: int]]= {}
-    for course in courses:
-        value= input(f"Введите оценку студента {student_name} по курсу {courses}")
-        result[student_name][course] = value
-    print(result)
+    students = {
+        "Иван": [5, 4, 5],
+        "Мария": [4, 3, 4],
+        "Петр": [3, 4, 5] }
+
+    print("Средние баллы:")
+    
+    all_grades = []
+    
+    for name, grades in students.items():
+        avg = sum(grades) / len(grades)
+        print(f"{name}: {round(avg, 2)}")
+        all_grades.extend(grades)
+        
+    if all_grades:
+        total_avg = sum(all_grades) / len(all_grades)
+        print(f"Общий средний:, {round(total_avg, 2)}")
+
+    min_dict = {}
+    for name, grades in students.items():
+        min_dict[name] = min(grades)
+    max_dict = {}
+    for name, grades in students.items():
+        max_dict[name] = max(grades)
+        
+    min_grade = calculate_smallest_value(min_dict)
+    max_grade = calculate_biggest_value(max_dict)
+
+    print(f"Минимальная оценка в группе: {min_grade}")
+    print(f"Максимальная оценка в группе: {max_grade}")
+    
+    
