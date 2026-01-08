@@ -14,4 +14,6 @@ if __name__ == "__main__":
     with open(args.output, 'w', encoding='utf-8') as f_out:
         f_out.write(content)
 
+
     print(f"файл '{args.input}' успешно скопирован в '{args.output}'")
+    
