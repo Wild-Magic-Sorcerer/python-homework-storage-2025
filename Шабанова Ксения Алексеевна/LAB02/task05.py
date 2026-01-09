@@ -1,13 +1,13 @@
+import re
+
+def get_words(text):
+    # 1. Переводим в нижний регистр
+    text = text.lower()
+    words = re.findall(r'\w+', text)
+    # 2. Превращаем список во множество для сравнения
+    return set(words)
+
 def main():
-    import re
-    
-    def get_words(text):
-        # 1. Переводим в нижний регистр
-        text = text.lower()
-        words = re.findall(r'\w+', text)
-        # 2. Превращаем список во множество для сравнения
-        return set(words)
-    
     # Ввод данных
     str1 = input("Введите первую строку: ")
     str2 = input("Введите вторую строку: ")
@@ -32,4 +32,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
