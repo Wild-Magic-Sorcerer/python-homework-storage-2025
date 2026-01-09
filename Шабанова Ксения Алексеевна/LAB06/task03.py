@@ -1,25 +1,25 @@
 def main():
     class Person:
         def __init__(self, name, profession):
-            self.name = name
-            self.profession = profession
+            self.__name = name
+            self.__profession = profession
     
         def introduce(self):
-            print(f"Привет! Я {self.name}, моя профессия — {self.profession}.")
+            print(f"Привет! Я {self.__name}, моя профессия — {self.__profession}.")
     
     class Employee(Person):
         def __init__(self, name, profession, position):
             super().__init__(name, profession)
-            self.position = position
+            self.__position = position
     
         def introduce(self):
             # Используем super(), чтобы не дублировать код
             super().introduce()
-            print(f"На работе я занимаю должность: {self.position}.")
+            print(f"На работе я занимаю должность: {self.__position}.")
     
     class Manager(Employee):
         def hold_meeting(self):
-            print(f"Менеджер {self.name} собирает совещание!")
+            print(f"Менеджер {self.__name} собирает совещание!")
     
     # Демонстрация
     p = Person("Анна", "Дизайнер")
@@ -38,4 +38,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
