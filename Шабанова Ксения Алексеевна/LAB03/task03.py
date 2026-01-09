@@ -1,5 +1,5 @@
 def multiply_ints(*args):
-    integers = [x for x in args if type(x) is int]
+    integers = [x for x in args if isinstance(x, int)]
     
     if not integers:
         return None
