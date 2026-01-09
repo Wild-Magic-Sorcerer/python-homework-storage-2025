@@ -1,28 +1,33 @@
-def main():
-    def m_max(lst):
-        max_num = 0
-        for el in lst:
-            if el > max_num:
-                max_num = el
-        return max_num
+def m_max(lst):
+    max_num = lst[0]
+    for el in lst:
+        if el > max_num:
+            max_num = el
+    return max_num
 
-    def m_min(lst):
-        min_num = lst[0]
-        for el in lst:
-            if el < min_num:
-                min_num = el
-        return min_num
-        
-    def m_sum(lst):
-        res = 0
-        for el in lst:
-            res += el
-        return res
+def m_min(lst):
+    min_num = lst[0]
+    for el in lst:
+        if el < min_num:
+            min_num = el
+    return min_num
+
+def m_sum(lst):
+    res = 0
+    for el in lst:
+        res += el
+    return res
+
+def main():
     courses = ["Высшая математика", "Программирование python", "Зоология"]
     
-    count_students = int(input("Введите количество студентов для оценки: "))
+    count_students_input = input("Введите количество студентов для оценки: ")
+    if not count_students_input.isdigit():
+        print("Ошибка: введите целое число!")
+        return
     
-    all_marks = [] # Список для хранения вообще всех оценок всех студентов
+    count_students = int(count_students_input)
+    all_marks = [] 
     
     for i in range(count_students):
         name = input(f"\nВведите имя студента №{i+1}: ")
@@ -32,7 +37,6 @@ def main():
             while True:
                 mark_input = input(f"  {course}: ")
                 
-                # Проверка
                 if mark_input.isdigit():
                     mark = int(mark_input)
                     if 3 <= mark <= 5:
@@ -54,6 +58,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
 
