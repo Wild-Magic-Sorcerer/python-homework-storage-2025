@@ -1,10 +1,7 @@
 def main():
     def analyze_string(s):
-        # 1. Убираем лишние пробелы по краям
         s = s.strip()
-        
-        # 2. Считаем слова (split() без аргументов делит по любому количеству пробелов)
-        words_list = s.split()
+                words_list = s.split()
         
         stats = {
             "words": len(words_list),
@@ -14,7 +11,6 @@ def main():
             "punctuation": 0
         }
         
-        # 3. Проходим по каждому символу исходной строки
         for char in s:
             if char.isalpha():      # Проверка на букву
                 stats["letters"] += 1
@@ -42,5 +38,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
