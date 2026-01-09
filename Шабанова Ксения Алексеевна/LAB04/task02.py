@@ -1,7 +1,14 @@
-fruits = ["apple", "banana", "cherry"]
+def main():
+  fruits = ["apple", "banana", "cherry"]
+  
+  # Применяем len к каждой строке списка
+  lengths = list(map(lambda s: len(s), fruits))
+  
+  print(f"Список строк: {fruits}")
+  
+  print(f"Длины строк: {lengths}")
 
-# Применяем len к каждой строке списка
-lengths = list(map(lambda s: len(s), fruits))
+if __name__ == "__main__":
+    main()
 
-print(f"Список строк: {fruits}")
-print(f"Длины строк: {lengths}")
+
