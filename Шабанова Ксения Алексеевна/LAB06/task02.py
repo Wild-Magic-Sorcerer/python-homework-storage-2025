@@ -1,24 +1,23 @@
+class BankAccount:
+    def __init__(self, initial_balance=0):
+        self.__balance = initial_balance  # Приватное поле
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.__balance += amount
+            print(f"Пополнено: {amount}. Новый баланс: {self.__balance}")
+
+    def withdraw(self, amount):
+        if 0 < amount <= self.__balance:
+            self.__balance -= amount
+            print(f"Снято: {amount}. Остаток: {self.__balance}")
+        else:
+            print("Ошибка: недостаточно средств или некорректная сумма!")
+
+    def get_balance(self):
+        return self.__balance
+
 def main():
-    class BankAccount:
-        def __init__(self, initial_balance=0):
-            self.__balance = initial_balance  # Приватное поле
-    
-        def deposit(self, amount):
-            if amount > 0:
-                self.__balance += amount
-                print(f"Пополнено: {amount}. Новый баланс: {self.__balance}")
-    
-        def withdraw(self, amount):
-            if 0 < amount <= self.__balance:
-                self.__balance -= amount
-                print(f"Снято: {amount}. Остаток: {self.__balance}")
-            else:
-                print("Ошибка: недостаточно средств или некорректная сумма!")
-    
-        def get_balance(self):
-            return self.__balance
-    
-    # Проверка
     account = BankAccount(1000)
     account.deposit(500)
     account.withdraw(300)
@@ -35,4 +34,5 @@ def main():
     
 if __name__ == "__main__":
     main()
+
 
