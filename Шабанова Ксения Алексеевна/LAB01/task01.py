@@ -1,4 +1,25 @@
 def main():
+    def m_max(lst):
+        max_num = 0
+        for el in lst:
+            if el > max_num:
+                max_num = el
+        return max_num
+
+    def m_min(lst):
+        min_num = lst[0]
+        for el in lst:
+            if el < min_num:
+                min_num = el
+        return min_num
+        
+    def m_sum(lst):
+        res = 0
+        for el in lst:
+            res += el
+        return res
+    
+    
     numbers = []
     print("Введите 10 целых чисел:")
 
@@ -12,11 +33,12 @@ def main():
             print("Это не целое число. Попробуйте еще раз!")
 
     print("\nРезультаты:")
-    print(f"Минимальное число: {min(numbers)}")
-    print(f"Максимальное число: {max(numbers)}")
-    print(f"Сумма всех чисел: {sum(numbers)}")
+    print(f"Минимальное число: {m_min(numbers)}")
+    print(f"Максимальное число: {m_max(numbers)}")
+    print(f"Сумма всех чисел: {m_sum(numbers)}")
 
 if __name__ == "__main__":
     main()
+
 
 
