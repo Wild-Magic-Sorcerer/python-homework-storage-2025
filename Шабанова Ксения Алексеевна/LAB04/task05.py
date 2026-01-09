@@ -12,17 +12,15 @@ def get_square(number):
 
 # Основная часть программы с вводом
 try:
-    # Просим пользователя ввести число
     user_input = input("Введите число, которое нужно возвести в квадрат: ")
     
-    # Преобразуем ввод в число
     val = float(user_input)
-    
-    # Вызываем нашу декорированную функцию
-    final_result = get_square(val)
-    
-    print(f"Результат вычислений: {final_result}")
-
 except ValueError:
     # Обработка ошибки, если пользователь ввел буквы вместо цифр
     print("Ошибка! Пожалуйста, вводите только числа.")
+except Exception:
+    print("Произошла иная ошибка")
+else:
+    final_result = get_square(val)
+    print(f"Результат вычислений: {final_result}")
+    
