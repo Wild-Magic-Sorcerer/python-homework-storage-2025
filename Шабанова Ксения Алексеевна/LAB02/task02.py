@@ -38,6 +38,9 @@ def main():
     print(f"Пробелов: {result['spaces']}")
     
     print(f"Знаков препинания: {result['punctuation']}")
+
+
 if __name__ == "__main__":
     main()
+
 
