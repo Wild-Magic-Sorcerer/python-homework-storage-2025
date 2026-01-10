@@ -1,7 +1,7 @@
+# заданный список (константа)    
+NUMBERS_LIST = [1, 2, 3, 2, 1, 4, 2, 5, 1, 1, 3]
+
 def main():
-    # заданный список (константа)
-    NUMBERS_LIST = [1, 2, 3, 2, 1, 4, 2, 5, 1, 1, 3]
-    
     count_dict = {}
     
     for num in NUMBERS_LIST:
@@ -17,6 +17,7 @@ def main():
     
 if __name__ == "__main__":
     main()
+
 
 
 
