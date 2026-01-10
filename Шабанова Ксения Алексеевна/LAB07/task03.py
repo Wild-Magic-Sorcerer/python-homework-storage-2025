@@ -1,5 +1,6 @@
+import argparse
+
 def main():
-    import argparse
     
     parser = argparse.ArgumentParser()
     parser.add_argument("strings", nargs='+', help="Список строк")
@@ -17,3 +18,4 @@ def main():
 if __name__ == "__main__":
     main()
     
+
