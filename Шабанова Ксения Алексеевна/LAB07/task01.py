@@ -1,5 +1,6 @@
+import argparse
+
 def main():
-  import argparse
   
   parser = argparse.ArgumentParser(description="Приветствие пользователя")
   parser.add_argument("name", help="Имя пользователя")
@@ -11,4 +12,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
