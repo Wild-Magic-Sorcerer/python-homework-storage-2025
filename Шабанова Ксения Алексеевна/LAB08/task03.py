@@ -1,5 +1,6 @@
+import re
+
 def main():
-  import re
   
   text = input("Введите предложение: ")
   
@@ -13,4 +14,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
