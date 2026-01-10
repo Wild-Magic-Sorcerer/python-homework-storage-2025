@@ -11,4 +11,5 @@ if __name__ == "__main__":
     with open("pupa2_0.txt", "w") as file:
         for line in uni:
             file.write(line + "\n")
+
 print(dups)
