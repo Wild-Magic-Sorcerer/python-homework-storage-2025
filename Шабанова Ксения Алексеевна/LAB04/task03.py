@@ -1,5 +1,6 @@
+from functools import reduce
+
 def main():
-  from functools import reduce
   
   numbers = list(range(1, 11))
   
@@ -12,4 +13,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
