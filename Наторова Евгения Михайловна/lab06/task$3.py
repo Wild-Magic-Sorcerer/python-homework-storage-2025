@@ -1,24 +1,24 @@
 class Person:
     def __init__(self, name, profession):
-        self.name = name
-        self.profession = profession
+        self.__name = name
+        self.__profession = profession
     def introduce(self):
-        print(f"меня зовут {self.name}, я {self.profession}")
+        print(f"меня зовут {self.__name}, я {self.__profession}")
 
 class Employee(Person):
     def __init__(self, name, profession, position):
         super().__init__(name, profession)
-        self.position = position
+        self.__position = position
     def introduce(self):
         super().introduce()
-        print(f"моя должность {self.position}")
+        print(f"моя должность {self.__position}")
 
 class Manager(Employee):
     def __init__(self, name, profession, position, department):
         super().__init__(name, profession, position)
-        self.department = department
+        self.__department = department
     def hold_meeting(self):
-        print(f"мэнеджер {self.name} проводит совещание  отделе {self.department}")
+        print(f"мэнеджер {self.__name} проводит совещание  отделе {self.__department}")
         
 if __name__ == "__main__":
     print("первый пункт")
@@ -35,4 +35,5 @@ if __name__ == "__main__":
     people = [persona5, emp1, man1]
     for person in people:
         person.introduce()
+
 
