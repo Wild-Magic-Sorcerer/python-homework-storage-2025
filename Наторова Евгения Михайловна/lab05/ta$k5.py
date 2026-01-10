@@ -14,4 +14,6 @@ user_mesage = input('введите сообщение')
 if __name__ == "__main__":
     logger("начало работы")
     time = datetime.datetime(2020, 3, 3, 3, 3, 3)
+
     print(time, user_mesage)
+    
