@@ -1,5 +1,6 @@
+import random
+
 def main():
-  import random
   
   # Создаем произвольный список (я взяла random для интереса)
   my_list = [random.randint(-20, 20) for _ in range(15)]
@@ -13,5 +14,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
