@@ -1,14 +1,15 @@
+def multiply_ints(*args):
+    integers = [x for x in args if isinstance(x, int)]
+    
+    if not integers:
+        return None
+    
+    res = 1
+    for n in integers:
+        res *= n
+    return res
+
 def main():
-    def multiply_ints(*args):
-        integers = [x for x in args if isinstance(x, int)]
-        
-        if not integers:
-            return None
-        
-        res = 1
-        for n in integers:
-            res *= n
-        return res
     
     # Проверяем
     print(f"Результат с числами: {multiply_ints(2, 'текст', 3, 4.5, 10)}")
@@ -17,5 +18,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
