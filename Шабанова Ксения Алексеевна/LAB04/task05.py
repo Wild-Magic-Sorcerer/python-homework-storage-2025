@@ -1,15 +1,17 @@
-def main():
-    def trace_decorator(func):
-        def wrapper(n):
-            print("Выполняется функция...")
-            result = func(n)
-            print("Функция выполнена.")
-            return result
-        return wrapper
+def trace_decorator(func):
+    def wrapper(n):
+        print("Выполняется функция...")
+        result = func(n)
+        print("Функция выполнена.")
+        return result
+    return wrapper
+
+@trace_decorator
+def get_square(number):
+    return number ** 2
     
-    @trace_decorator
-    def get_square(number):
-        return number ** 2
+
+def main():
     
     # Основная часть программы с вводом
     try:
@@ -28,4 +30,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
