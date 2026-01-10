@@ -12,9 +12,7 @@ def get_square(number):
     
 
 def main():
-    
-    # Основная часть программы с вводом
-    try:
+        try:
         user_input = input("Введите число, которое нужно возвести в квадрат: ")
         
         val = float(user_input)
@@ -30,5 +28,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
