@@ -1,5 +1,6 @@
+import re
+
 def main():
-  import re
   
   input_str = input("Введите текст с датами: ")
   
@@ -14,5 +15,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
