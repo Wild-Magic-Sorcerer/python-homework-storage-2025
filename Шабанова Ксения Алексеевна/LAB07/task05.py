@@ -1,5 +1,6 @@
+import argparse
+
 def main():
-    import argparse
     
     parser = argparse.ArgumentParser()
     parser.add_argument("n", type=int, help="Число для расчета факториала")
@@ -27,4 +28,5 @@ def main():
         
 if __name__ == "__main__":
     main()
+
 
