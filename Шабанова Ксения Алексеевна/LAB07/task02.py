@@ -1,5 +1,6 @@
+import argparse
+
 def main():
-    import argparse
     
     parser = argparse.ArgumentParser()
     parser.add_argument("x", type=float)
@@ -22,4 +23,5 @@ def main():
         
 if __name__ == "__main__":
     main()
+
 
