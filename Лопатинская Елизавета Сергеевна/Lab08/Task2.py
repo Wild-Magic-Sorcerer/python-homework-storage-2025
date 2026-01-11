@@ -9,4 +9,6 @@ user_input = input("Введите текст, содержащий даты (н
 output = mask_dates(user_input)
 
 print("\nРезультат обработки:")
+
 print(output)
+
