@@ -9,15 +9,23 @@ def filter_vowel_strings(**kwargs):
                 result[key] = value
     return result
 
+def main():
+    print("--- Анализ строк на наличие гласных (минимум 3) ---")
 
-filtered_data = filter_vowel_strings(
-    name="Алексей",
-    city="Уфа",
-    job="Программист",
-    hobby="AI",
-    status="Active"
-)
+    filtered_data = filter_vowel_strings(
+        name="Алексей",      # А, е, е -> 3
+        city="Уфа",          # У, а -> 2
+        job="Программист",   # о, а, и -> 3
+        hobby="AI",          # A, I -> 2
+        status="Active"      # A, i, e -> 3 )
 
-print("Отфильтрованные аргументы:")
+    if filtered_data:
+        print("\nОтфильтрованные аргументы:")
+        for key, val in filtered_data.items():
+            print(f"  • {key}: {val}")
+    else:
+        print("\nСовпадений не найдено.")
 
-print(filtered_data)
+if __name__ == "__main__":
+    main()
+
