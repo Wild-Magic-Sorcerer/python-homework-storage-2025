@@ -9,7 +9,7 @@ def logger(message, timestamp=None):
     with open("log.txt", "a", encoding= 'utf-8') as file:
         log_entery = f"[{time_str}] {message}\n"
         file.write(log_entery)
-user_mesage = input('введите сообщение')
+    user_mesage = input('введите сообщение')
 
 if __name__ == "__main__":
     logger("начало работы")
@@ -17,3 +17,4 @@ if __name__ == "__main__":
 
     print(time, user_mesage)
     
+
