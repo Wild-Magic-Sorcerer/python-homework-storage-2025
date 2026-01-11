@@ -8,4 +8,6 @@ def filter_by_len(strings):
 if __name__ == "__main__":
     stroka = ["abcd", "def", "gh", "dhdjh", "lsdfjddd"]
     filtered = filter_by_len(stroka)
+
     print(filtered)
+    
