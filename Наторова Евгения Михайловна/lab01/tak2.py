@@ -27,23 +27,24 @@ if __name__ == "__main__":
             grades.append(grade)
         studgrades[name] = grades
 
-
     total_sum = 0
     for grade in grades:
         total_sum += grade
     average = total_sum / len(grades)
 
-    min_grade = grades[0]
-    for grade in grades:
-        if grade < min_grade:
-            min_grade = grade
+    if grades:
+        min_grade = grades[0]
+        max_grade = grades[0]
+        for grade in grades:
+            if grade < min_grade:
+                min_grade = grade
+            if grade > max_grade:
+                max_grade = grade
+                
+        print(f"общее количество студентов: {len(studgrades)},"
+              f" средний балл по всем студентам: {average},"
+              f" минимальная оценка среди всех: {min_grade},"
+              f" максимальная оценка среди всех: {max_grade}")
+    else:
+        print('оценок нет')
 
-    max_grade = grades[0]
-    for grade in grades:
-        if grade > max_grade:
-            max_grade = grade
-
-    print(f"общее количество студентов: {len(studgrades)},"
-          f" средний балл по всем студентам: {average},"
-          f" минимальная оценка среди всех: {min_grade},"
-          f" максимальная оценка среди всех: {max_grade}")
