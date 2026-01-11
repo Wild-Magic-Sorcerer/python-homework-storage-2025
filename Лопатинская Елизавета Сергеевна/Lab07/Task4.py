@@ -1,7 +1,7 @@
 import argparse
 import sys
 
-def copy_file():
+def main():
     parser = argparse.ArgumentParser(description="Утилита для копирования файлов")
     parser.add_argument("--input", required=True, help="Путь к исходному файлу")
     parser.add_argument("--output", required=True, help="Путь к файлу назначения")
@@ -26,6 +26,5 @@ def copy_file():
 
 
 if __name__ == "__main__":
-
-    copy_file()
-
+    main()
+    
