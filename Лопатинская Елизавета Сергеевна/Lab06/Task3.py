@@ -38,4 +38,5 @@ for p in people:
 print("\n--- Проверка специфичных методов ---")
 boss.hold_meeting()
 
+
 print(f"Проверка атрибутов Manager: Имя={boss.name}, Должность={boss.position}")
