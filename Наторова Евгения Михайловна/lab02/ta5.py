@@ -28,4 +28,6 @@ if __name__ == "__main__":
         if uni2:
             print(f"\n cлова, которые есть только во второй строке:")
             for word in sorted(uni2):
+
                 print(word)
+                
