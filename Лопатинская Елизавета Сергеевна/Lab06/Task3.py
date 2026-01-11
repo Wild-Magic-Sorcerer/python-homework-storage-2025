@@ -13,7 +13,6 @@ class Employee(Person):
         self.vocation = "лаборант"
 
     def introduce(self):
-        # Полиморфизм: переопределяем метод базового класса
         print(f"Здравствуйте! Я {self.name}, работаю на должности: {self.position}.")
 
 class Manager(Employee):
@@ -24,19 +23,22 @@ class Manager(Employee):
     def hold_meeting(self):
         print(f"Менеджер {self.name} собирает совещание отдела {self.department}...")
 
-#Проверка работы
 
-person = Person("Иван")
-worker = Employee("Анна", "Разработчик")
-boss = Manager("Сергей", "Технический директор", "IT")
+def main():
+    person = Person("Иван")
+    worker = Employee("Анна", "Разработчик")
+    boss = Manager("Сергей", "Технический директор", "IT")
 
-print("--- Проверка полиморфизма ---")
-people = [person, worker, boss]
-for p in people:
-    p.introduce()
+    print("--- Проверка полиморфизма ---")
+    people = [person, worker, boss]
+    for p in people:
+        p.introduce()
 
-print("\n--- Проверка специфичных методов ---")
-boss.hold_meeting()
+    print("\n--- Проверка специфичных методов ---")
+    boss.hold_meeting()
 
+    print(f"\nПроверка атрибутов Manager: Имя={boss.name}, Должность={boss.position}")
 
-print(f"Проверка атрибутов Manager: Имя={boss.name}, Должность={boss.position}")
+if __name__ == "__main__":
+    main()
+    
