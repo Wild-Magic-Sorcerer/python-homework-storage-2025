@@ -19,4 +19,5 @@ filtered_data = filter_vowel_strings(
 )
 
 print("Отфильтрованные аргументы:")
+
 print(filtered_data)
