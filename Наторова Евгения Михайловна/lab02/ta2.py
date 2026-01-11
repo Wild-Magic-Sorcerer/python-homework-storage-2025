@@ -23,4 +23,6 @@ if __name__ == "__main__":
           f" букв: {result['letters']},"
           f" цифр: {result['digits']},"
           f" пробелов: {result['spaces']},"
+
           f" знаков препинания: {result['punct']} ")
+    
