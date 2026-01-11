@@ -15,3 +15,5 @@ filtered = filter_long_strings(words)
 print(f"Исходный список: {words}")
 
 print(f"Строки длиннее средней: {filtered}")
+
+
