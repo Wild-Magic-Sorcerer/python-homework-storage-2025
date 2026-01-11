@@ -27,4 +27,5 @@ print("-" * 30)
 
 city_bus = Bus(60, 50, 42)
 print("Информация об автобусе:")
+
 city_bus.info()
