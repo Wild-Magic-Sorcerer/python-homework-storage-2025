@@ -19,4 +19,6 @@ def find_phone(text):
 
 
 user_input = input("Введите строку для поиска номера: ")
+
 find_phone(user_input)
+
