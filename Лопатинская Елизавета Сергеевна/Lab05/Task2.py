@@ -15,4 +15,6 @@ try:
         else:
             print("[Файл пуст]")
 except FileNotFoundError:
+
     print(f"Ошибка: Файл '{file_name}' не найден.")
+    
