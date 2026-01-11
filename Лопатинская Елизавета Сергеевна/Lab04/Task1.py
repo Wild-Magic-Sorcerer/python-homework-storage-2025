@@ -5,4 +5,6 @@ print("-" * 25)
 
 for i in range(1, 11):
     result = is_even(i)
+
     print(f"{i:<10} | {result:<10}")
+    
