@@ -17,15 +17,18 @@ class Bus(Transport):
               f"Скорость = {self.speed} км/ч, "
               f"Вместимость = {self.capacity} чел.")
 
-#Тестирование
+def main():
+    print("--- Тестирование системы транспорта ---")
+    generic_transport = Transport(120, 5)
+    print("Информация о базовом транспорте:")
+    generic_transport.info()
 
-generic_transport = Transport(120, 5)
-print("Информация о базовом транспорте:")
-generic_transport.info()
+    print("-" * 40)
 
-print("-" * 30)
+    city_bus = Bus(60, 50, 42)
+    print("Информация об автобусе:")
+    city_bus.info()
 
-city_bus = Bus(60, 50, 42)
-print("Информация об автобусе:")
-
-city_bus.info()
+if __name__ == "__main__":
+    main()
+    
