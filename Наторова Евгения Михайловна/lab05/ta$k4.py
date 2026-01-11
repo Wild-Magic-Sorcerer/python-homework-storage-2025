@@ -12,4 +12,5 @@ if __name__ == "__main__":
         for line in uni:
             file.write(line + "\n")
 
-print(dups)
+    print(dups)
+
