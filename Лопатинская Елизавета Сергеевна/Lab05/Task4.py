@@ -14,21 +14,31 @@ def filter_unique_lines(input_file, output_file):
                 else:
                     unique_lines.add(clean_line)
 
-
         with open(output_file, 'w', encoding='utf-8') as f:
-            for line in unique_lines:
+            for line in sorted(unique_lines):  # Сортировка добавлена для порядка
                 f.write(line + '\n')
-
         print(f"Обработка завершена. Уникальные строки сохранены в '{output_file}'.")
+        
         if duplicates:
             print("\nНайденные неуникальные строки (дубликаты):")
-            for dup in set(duplicates):
+            for dup in sorted(set(duplicates)):
                 print(f"- {dup}")
         else:
             print("\nПовторяющихся строк не обнаружено.")
 
     except FileNotFoundError:
         print(f"Ошибка: Файл '{input_file}' не найден.")
+    except Exception as e:
+        print(f"Произошла непредвиденная ошибка: {e}")
 
+def main():
+    source = "data.txt"
+    destination = "unique_data.txt"
+    
+    print(f"--- Запуск фильтрации строк в файле {source} ---")
+    filter_unique_lines(source, destination)
+    print("--- Работа программы завершена ---")
 
-filter_unique_lines("data.txt", "unique_data.txt")
+if __name__ == "__main__":
+    main()
+    
