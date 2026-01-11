@@ -7,4 +7,6 @@ if __name__ == "__main__":
         dict[num] = dict.get(num, 0) + 1
 
     for number, count in sorted(dict.items()):
+
         print(f"  {number} — {count}")
+        
