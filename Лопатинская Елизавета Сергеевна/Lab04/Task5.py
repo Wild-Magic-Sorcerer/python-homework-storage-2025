@@ -13,4 +13,6 @@ def square_number(n):
 number = 5
 print(f"--- Старт программы для числа {number} ---")
 final_result = square_number(number)
+
 print(f"Результат вычислений: {final_result}")
+
