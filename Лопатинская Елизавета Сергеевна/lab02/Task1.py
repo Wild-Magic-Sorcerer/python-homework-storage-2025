@@ -24,7 +24,10 @@ def check_palindrome():
     if is_palindrome:
         print("\nПоздравляем! Это палиндром.")
 
+def main():
+    print("--- Программа проверки палиндромов ---")
+    check_palindrome()
+    print("\nПрограмма завершена.")
 
-
-check_palindrome()
-
+if __name__ == "__main__":
+    main()
