@@ -44,4 +44,6 @@ else:
     print(f"Всего студентов: {len(students_data)}")
     print(f"Средний балл по всем курсам: {average_score:.2f}")
     print(f"Минимальная оценка: {min_score}")
+
     print(f"Максимальная оценка: {max_score}")
+    
