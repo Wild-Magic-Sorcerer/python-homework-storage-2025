@@ -15,4 +15,6 @@ result_counts = count_occurrences(NUMBERS)
 
 print("Результаты подсчета:")
 for number, count in result_counts.items():
+
     print(f"{number} — {count}")
+    
