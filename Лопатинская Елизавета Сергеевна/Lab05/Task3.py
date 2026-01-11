@@ -12,4 +12,5 @@ def copy_and_replace(source_file, target_file):
     except Exception as e:
         print(f"Произошла ошибка: {e}")
 
+
 copy_and_replace("source.txt", "destination.txt")
