@@ -25,4 +25,6 @@ def check_palindrome():
         print("\nПоздравляем! Это палиндром.")
 
 
+
 check_palindrome()
+
