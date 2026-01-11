@@ -22,24 +22,25 @@ class BankAccount:
     def get_balance(self):
         return self.__balance
 
-#Проверка работы
+def main():
+    print("--- Работа с банковскими счетами ---")
+    
+    account_1 = BankAccount("Алексей", 1000)
+    
+    print(f"Счет владельца: {account_1.owner}")
+    account_1.deposit(500)
+    account_1.withdraw(2000)  # Попытка снять больше остатка
+    account_1.withdraw(300)   # Успешное снятие
 
+    print(f"Финальный баланс: {account_1.get_balance()}")
+    print("-" * 35)
+    print("Проверка защиты данных:")
+    
+    try:
+        print(account_1.__balance)
+    except AttributeError:
+        print("Результат: Прямой доступ к '__balance' невозможен. Поле защищено механизмом Name Mangling.")
 
-account_1 = BankAccount("Алексей", 1000)
-account_2 = BankAccount("Мария", 500)
-
-
-print(f"Счет владельца: {account_1.owner}")
-account_1.deposit(500)
-account_1.withdraw(2000)
-account_1.withdraw(300)
-
-print(f"Финальный баланс: {account_1.get_balance()}")
-
-print("-" * 30)
-try:
-    print(account_1.__balance)
-except AttributeError:
-
-    print("Результат проверки: Прямой доступ к '__balance' невозможен. Поле защищено!")
+if __name__ == "__main__":
+    main()
     
