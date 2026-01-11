@@ -16,4 +16,6 @@ def transform_string(text):
 user_input = input("Введите строку: ")
 final_text = transform_string(user_input)
 
+
 print(f"Результат: {final_text}")
+
