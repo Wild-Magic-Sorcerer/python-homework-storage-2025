@@ -14,4 +14,6 @@ def logger(message, timestamp=None):
 
 logger("Запуск системы")
 logger("Пользователь 'admin' вошел в систему")
+
 logger("Ошибка доступа к базе данных", timestamp=datetime(2025, 12, 31, 23, 59))
+
