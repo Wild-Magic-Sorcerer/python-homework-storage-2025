@@ -4,9 +4,6 @@ if __name__ == "__main__":
 
     with open("suda.txt", "w") as dest_file:
         dest_file.write(content)
-
-    with open("suda.txt", "r") as file:
-        content = file.read()
         new_content = content.replace("cat", "dog")
         
     with open("suda.txt", "w") as file:
@@ -14,4 +11,5 @@ if __name__ == "__main__":
 
     with open("suda.txt", "r") as file:
         print(file.read())
+
 
