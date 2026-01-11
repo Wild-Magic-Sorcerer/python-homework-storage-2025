@@ -40,4 +40,6 @@ print("-" * 30)
 try:
     print(account_1.__balance)
 except AttributeError:
+
     print("Результат проверки: Прямой доступ к '__balance' невозможен. Поле защищено!")
+    
