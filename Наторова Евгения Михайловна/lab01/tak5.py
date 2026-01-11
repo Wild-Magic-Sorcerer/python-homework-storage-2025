@@ -5,4 +5,6 @@ if __name__ == "__main__":
     spisok = [num for num in list if num % 3 == 0]
 
     print(f"Исходный список: {list},"
+
           f"Числа, кратные 3: {spisok}")
+    
