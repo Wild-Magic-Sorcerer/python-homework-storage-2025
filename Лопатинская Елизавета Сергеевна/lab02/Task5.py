@@ -21,3 +21,4 @@ def compare_strings():
         print(", ".join(diff))
 
 compare_strings()
+
