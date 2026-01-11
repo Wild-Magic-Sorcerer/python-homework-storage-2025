@@ -10,12 +10,14 @@ def transform_string(text):
                 result += char.lower()  # Согласную — в строчную
         else:
             result += char
-
     return result
 
-user_input = input("Введите строку: ")
-final_text = transform_string(user_input)
+def main():
+    print("--- Программа изменения текста ---")
+    user_input = input("Введите строку: ")
+    final_text = transform_string(user_input)
+    print(f"Результат: {final_text}")
 
-
-print(f"Результат: {final_text}")
+if __name__ == "__main__":
+    main()
 
