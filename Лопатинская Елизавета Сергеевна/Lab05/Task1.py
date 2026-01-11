@@ -28,4 +28,6 @@ try:
 except FileNotFoundError:
     print("Ошибка: Файл не найден.")
 except ValueError:
+
     print("Ошибка: В файле содержатся некорректные данные (не числа).")
+    
