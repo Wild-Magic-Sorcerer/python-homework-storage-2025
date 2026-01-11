@@ -17,3 +17,4 @@ if __name__ == "__main__":
 
     itime = nowtime()
     print(f"время {itime}")
+    
