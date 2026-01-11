@@ -3,9 +3,12 @@ if __name__ == "__main__":
     for i in range(10):
         while True:
             user_input = input(f"введите целое число ")
-            num = int(user_input)
-            numbers.append(num)
-            break
+            try:
+                num = int(user_input)
+                numbers.append(num)
+                break
+            except ValueError:
+                print("неорректное число")
     
     if numbers:
         min_num = numbers[0]
@@ -26,3 +29,4 @@ if __name__ == "__main__":
         print(f"сумма всех чисел: {total}")
     else:
         print("пусто")
+
