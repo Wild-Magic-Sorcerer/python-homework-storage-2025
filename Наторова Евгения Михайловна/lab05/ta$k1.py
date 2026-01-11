@@ -1,6 +1,6 @@
+import random
 
 if __name__ == "__main__":
-    import random
     with open("numbers.txt", "w") as file:
         for i in range(10):
             file.write(str(random.randint(1, 1000)) + "\n")
@@ -30,3 +30,4 @@ if __name__ == "__main__":
         avg_num = total / count
 
 print(f"максимальное число: {max_num}, минимальное число: {min_num}, среднее значение: {avg_num}")
+
