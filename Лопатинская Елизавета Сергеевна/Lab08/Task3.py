@@ -12,4 +12,6 @@ result = split_text(user_input)
 
 print("\nСписок слов:")
 print(result)
+
 print(f"Всего слов: {len(result)}")
+
