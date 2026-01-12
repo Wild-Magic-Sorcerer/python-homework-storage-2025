@@ -17,7 +17,8 @@ def main():
         city="Уфа",          # У, а -> 2
         job="Программист",   # о, а, и -> 3
         hobby="AI",          # A, I -> 2
-        status="Active"      # A, i, e -> 3 )
+        status="Active"      # A, i, e -> 3 
+    )
 
     if filtered_data:
         print("\nОтфильтрованные аргументы:")
@@ -28,4 +29,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
