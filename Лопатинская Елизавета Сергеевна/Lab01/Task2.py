@@ -1,3 +1,23 @@
+def find_min(numbers_list):
+    if not numbers_list:
+        return None
+        
+    for num in numbers_list:
+        if num < current_min:
+            current_min = num
+    return current_min
+
+def find_max(numbers_list):
+    if not numbers_list:
+        return None
+    current_max = numbers_list[0]
+    
+    for num in numbers_list:
+        if num > current_max:
+            current_max = num
+            
+    return current_max
+
 def main():
     courses = ["Высшая математика", "Зоология позвоночных", "Органическая химия"]
     students_data = []
@@ -37,8 +57,8 @@ def main():
             all_grades.extend(s["grades"])
 
         average_score = sum(all_grades) / len(all_grades)
-        min_score = min(all_grades)
-        max_score = max(all_grades)
+        min_score = find_min(all_grades)
+        max_score = find_max(all_grades)
 
         print("-" * 30)
         print(f"Всего студентов: {len(students_data)}")
@@ -48,6 +68,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
     
