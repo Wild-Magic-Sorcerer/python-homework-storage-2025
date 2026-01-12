@@ -3,7 +3,7 @@ def multiply_integers(*args):
     found_int = False
 
     for item in args:
-        if type(item) is int:
+        if isinstance(item, int) and not isinstance(item, bool):
             product *= item
             found_int = True
             
@@ -23,5 +23,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
-
