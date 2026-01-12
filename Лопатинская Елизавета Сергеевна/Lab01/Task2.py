@@ -1,7 +1,7 @@
 def find_min(numbers_list):
     if not numbers_list:
         return None
-        
+    current_min = numbers_list[0]
     for num in numbers_list:
         if num < current_min:
             current_min = num
@@ -11,11 +11,9 @@ def find_max(numbers_list):
     if not numbers_list:
         return None
     current_max = numbers_list[0]
-    
     for num in numbers_list:
         if num > current_max:
             current_max = num
-            
     return current_max
 
 def main():
@@ -31,7 +29,7 @@ def main():
         if name.lower() == 'выход':
             break
 
-        student_grades = []
+        student_grades = {} 
         print(f"Введите оценки для студента {name}:")
 
         for course in courses:
@@ -40,7 +38,7 @@ def main():
                 try:
                     grade = int(grade_input)
                     if 3 <= grade <= 5:
-                        student_grades.append(grade)
+                        student_grades[course] = grade
                         break
                     else:
                         print("  Ошибка: Оценка должна быть в диапазоне от 3 до 5.")
@@ -54,7 +52,7 @@ def main():
     else:
         all_grades = []
         for s in students_data:
-            all_grades.extend(s["grades"])
+            all_grades.extend(s["grades"].values())
 
         average_score = sum(all_grades) / len(all_grades)
         min_score = find_min(all_grades)
