@@ -2,7 +2,7 @@ import argparse
 if __name__ == '__main__':
     calculat = argparse.ArgumentParser(description='Считает факториал')
     calculat.add_argument('num', type=int)
-    calculat.add_argument('-d','--details')
+    calculat.add_argument('-d','--details', action='store_true')
     factorial = calculat.parse_args()
 
     calculation: int = 1

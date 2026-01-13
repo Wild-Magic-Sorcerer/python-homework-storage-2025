@@ -6,7 +6,8 @@ if __name__ == '__main__':
     list_strok = lines.parse_args()
 
     if list_strok.flag:
-        print(len(list_strok.line))
+        lines = list_strok.line
+        print(len(lines))
     else:
         for i in list_strok.line:
             print(i)
