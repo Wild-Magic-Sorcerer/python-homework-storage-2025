@@ -18,7 +18,7 @@ def find_max(numbers_list):
 
 def main():
     courses = ["Высшая математика", "Зоология позвоночных", "Органическая химия"]
-    students_data = []
+    students_data = {}
 
     print("Текущий контроль успеваемости студентов")
     print(f"Курсы: {', '.join(courses)}")
@@ -45,14 +45,15 @@ def main():
                 except ValueError:
                     print("  Ошибка: Введите целое число.")
 
-        students_data.append({"name": name, "grades": student_grades})
+       students_data[name] = student_grades
 
     if not students_data:
         print("\nДанные не были введены.")
     else:
         all_grades = []
-        for s in students_data:
-            all_grades.extend(s["grades"].values())
+      for name in students_data:
+            grades_dict = students_data[name]
+            all_grades.extend(grades_dict.values())
 
         average_score = sum(all_grades) / len(all_grades)
         min_score = find_min(all_grades)
@@ -66,4 +67,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
