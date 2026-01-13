@@ -1,14 +1,14 @@
 class BankAccount:
     def __init__(self, owner, initial_balance=None):
         self.__owner = owner
-        self.__balance = initial_balance if initial_balance >= None else None
+        self.__balance = initial_balance if initial_balance else 0
 
     @property
     def owner(self):
         return self.__owner
 
     def deposit(self, amount):
-        if amount > None:
+        if amount > 0:
             self.__balance += amount
             print(f"Пополнение на {amount}. Текущий баланс: {self.__balance}")
         else:
@@ -47,4 +47,5 @@ def main():
 if __name__ == "__main__":
     main()
     
+
 
