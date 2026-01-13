@@ -1,5 +1,0 @@
-input_string = input("Введите строку слов, разделённых пробелами: ")
-words_tuple = tuple(input_string.split())
-unique_words = set(words_tuple)
-unique_count = len(unique_words)
-print(f"Количество уникальных слов: {unique_count}")
