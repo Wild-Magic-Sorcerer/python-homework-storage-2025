@@ -1,22 +1,21 @@
 class BankAccount:
-    def __init__(self, owner, initial_balance=0):
+    def __init__(self, owner, initial_balance=None):
         self.__owner = owner
-        self.__balance = initial_balance if initial_balance >= 0 else 0
+        self.__balance = initial_balance if initial_balance >= None else None
 
     @property
     def owner(self):
-        """Геттер для доступа к имени владельца"""
         return self.__owner
 
     def deposit(self, amount):
-        if amount > 0:
+        if amount > None:
             self.__balance += amount
             print(f"Пополнение на {amount}. Текущий баланс: {self.__balance}")
         else:
             print("Сумма пополнения должна быть положительной!")
 
     def withdraw(self, amount):
-        if amount <= 0:
+        if amount <= None:
             print("Сумма снятия должна быть положительной!")
         elif amount > self.__balance:
             print(f"Ошибка: Недостаточно средств! (Запрошено: {amount}, Доступно: {self.__balance})")
@@ -48,3 +47,4 @@ def main():
 if __name__ == "__main__":
     main()
     
+
