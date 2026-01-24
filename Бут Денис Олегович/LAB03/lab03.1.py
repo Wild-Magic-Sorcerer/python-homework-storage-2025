@@ -2,7 +2,7 @@ def average (list_of_strings):
     list_of_lens = []
     for string in list_of_strings:
         list_of_lens.append(len(string))
-    avg = sum(list_of_lens) // len(list_of_lens)
+    avg = sum(list_of_lens) / len(list_of_lens)
     return avg
 
 
