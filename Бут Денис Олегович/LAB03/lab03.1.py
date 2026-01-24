@@ -6,7 +6,7 @@ def average (list_of_strings):
     return avg
 
 
-def average_string (list_of_strings, number=0 ):
+def average_string (list_of_strings, number = None ):
     for string in list_of_strings:
         if len(string) < number:
             list_of_strings.remove(string)
@@ -17,4 +17,5 @@ if __name__ == "__main__":
     list_of_str = ["first string", "second", "third string", "fourth"]
     num = average(list_of_str)
     print(f" Строки большие чем среднее значение:{average_string(list_of_str, num)}")
+
 
