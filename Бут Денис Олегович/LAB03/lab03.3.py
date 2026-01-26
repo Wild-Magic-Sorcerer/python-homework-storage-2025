@@ -1,14 +1,9 @@
-def multiplying_args (*args):
+def multiplying_args(*args):
     if not args:
         return None
     res_num = 1
-    has_int = False
-    for arg in args:
-        if isinstance(arg, int) and not isinstance(arg, bool):
-            res_num *= arg
-            has_int = True
-
-    return res_num if has_int else None
+    list_of_arg = [res_num := res_num*arg for arg in args if isinstance(arg, int) and not isinstance(arg, bool)]
+    return res_num, list_of_arg
 
 if __name__ == "__main__":
     list_for_def = [False,1,"ss",2,(1,4),4]
