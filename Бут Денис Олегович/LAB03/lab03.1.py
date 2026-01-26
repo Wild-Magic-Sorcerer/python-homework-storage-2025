@@ -1,4 +1,4 @@
-def average (list_of_strings):
+def average(list_of_strings):
     list_of_lens = []
     for string in list_of_strings:
         list_of_lens.append(len(string))
@@ -7,9 +7,7 @@ def average (list_of_strings):
 
 
 def average_string (list_of_strings, number = None ):
-    for string in list_of_strings:
-        if len(string) < number:
-            list_of_strings.remove(string)
+    list_of_strings = [ string for string in list_of_strings if len(string) > number ]
     return list_of_strings
 
 
