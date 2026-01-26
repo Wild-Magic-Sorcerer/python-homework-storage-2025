@@ -7,4 +7,6 @@ if __name__ == "__main__":
     for item in parts:
         if item:
             result.append(item)
+
     print("Слова:", result)
+
