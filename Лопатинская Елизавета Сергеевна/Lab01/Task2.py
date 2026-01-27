@@ -1,0 +1,69 @@
+def find_min(numbers_list):
+    if not numbers_list:
+        return None
+    current_min = numbers_list[0]
+    for num in numbers_list:
+        if num < current_min:
+            current_min = num
+    return current_min
+
+def find_max(numbers_list):
+    if not numbers_list:
+        return None
+    current_max = numbers_list[0]
+    for num in numbers_list:
+        if num > current_max:
+            current_max = num
+    return current_max
+
+def main():
+    courses = ["Высшая математика", "Зоология позвоночных", "Органическая химия"]
+    students_data = {}
+
+    print("Текущий контроль успеваемости студентов")
+    print(f"Курсы: {', '.join(courses)}")
+    print("Введите 'выход', чтобы завершить ввод и увидеть результаты.\n")
+
+    while True:
+        name = input("Введите имя студента: ").strip()
+        if name.lower() == 'выход':
+            break
+
+        student_grades = {} 
+        print(f"Введите оценки для студента {name}:")
+
+        for course in courses:
+            while True:
+                grade_input = input(f"  Оценка за '{course}' (3-5): ")
+                try:
+                    grade = int(grade_input)
+                    if 3 <= grade <= 5:
+                        student_grades[course] = grade
+                        break
+                    else:
+                        print("  Ошибка: Оценка должна быть в диапазоне от 3 до 5.")
+                except ValueError:
+                    print("  Ошибка: Введите целое число.")
+
+       students_data[name] = student_grades
+
+    if not students_data:
+        print("\nДанные не были введены.")
+    else:
+        all_grades = []
+      for name in students_data:
+            grades_dict = students_data[name]
+            all_grades.extend(grades_dict.values())
+
+        average_score = sum(all_grades) / len(all_grades)
+        min_score = find_min(all_grades)
+        max_score = find_max(all_grades)
+
+        print("-" * 30)
+        print(f"Всего студентов: {len(students_data)}")
+        print(f"Средний балл по всем курсам: {average_score:.2f}")
+        print(f"Минимальная оценка: {min_score}")
+        print(f"Максимальная оценка: {max_score}")
+
+if __name__ == "__main__":
+    main()
