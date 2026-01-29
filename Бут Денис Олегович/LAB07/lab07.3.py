@@ -1,19 +1,19 @@
 import argparse
 
-def counter_of_str(args_object):
-    if args_object.count:
-        return len(args_object.strings)
-    elif args_object.strings:
-        return " ".join(args_object.strings)
-    else:
-        return None
+def format_strings(strings, count=False):
+
+    if count:
+        return len(strings)
+    elif strings:
+        return " ".join(strings)
+    return None
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-
-    parser.add_argument("strings", nargs="*", default=[])
-    parser.add_argument("-c", "--count", action="store_true")
+    parser.add_argument("strings", nargs="*", default=[], help="Строки для обработки")
+    parser.add_argument("-c", "--count", action="store_true", help="Подсчитать количество строк")
 
     args = parser.parse_args()
-    result = counter_of_str(args)
+    result = format_strings(args.strings, args.count)
+    print(result)
 

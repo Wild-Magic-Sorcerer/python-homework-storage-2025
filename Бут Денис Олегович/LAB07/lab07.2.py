@@ -1,36 +1,39 @@
 import argparse
 
-def calculator(args_list):
 
-    if args_list.num1 and args_list.operation and args_list.num2:
-        num1, operation, num2 = args_list.num1, args_list.operation, args_list.num2
+def calculate(num1, num2, operation=None):
 
-        operations = {
-            "add": ("+", num1 + num2),
-            "sub": ("-", num1 - num2),
-            "mul": ("*", num1 * num2),
-            "div": ("/", num1 / num2 if num2 != 0 else "деление на ноль"),
-        }
+    if operation is None:
+        return f"Ваши числа: {num1}, {num2}"
 
-        if operation in operations:
-            op, res = operations[operation]
-            return f" Результат вычислений = {res} "
-        else:
-            return "Ввод некорректной операции"
+    if operation == "add":
+        res = num1 + num2
+        op_symbol = "+"
+    elif operation == "sub":
+        res = num1 - num2
+        op_symbol = "-"
+    elif operation == "mul":
+        res = num1 * num2
+        op_symbol = "*"
+    elif operation == "div":
+        if num2 == 0:
+            return "Ошибка: деление на ноль"
+        res = num1 / num2
+        op_symbol = "/"
+    else:
+        return "Ошибка: некорректная операция"
 
-    elif args_list.num1 and args_list.num2:
-        return f"Ваши числа: {args_list.num1}, {args_list.num2}"
+    return f"Результат: {num1} {op_symbol} {num2} = {res}"
 
-    return None
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Калькулятор")
+    parser = argparse.ArgumentParser()
 
-    parser.add_argument("num1", nargs="?", type=int)
-    parser.add_argument("num2", nargs="?", type=int)
-    parser.add_argument("operation", nargs="?",
-                        choices=["add", "sub", "mul", "div"])
+    parser.add_argument("num1", type=int, help="Первое число")
+    parser.add_argument("operation", choices=["add", "sub", "mul", "div"], help="Операция: add(+), sub(-), mul(*), div(/)")
+    parser.add_argument("num2", type=int, help="Второе число")
+
     args = parser.parse_args()
 
-    result = calculator(args)
-
+    result = calculate(args.num1, args.num2, args.operation)
+    print(result)

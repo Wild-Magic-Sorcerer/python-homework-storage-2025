@@ -12,9 +12,8 @@ def copy_file(source, target):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("-i", "--input", required=True,metavar="SOURCE", help="файл для копирования")
-    parser.add_argument("-o", "--output", required=True, metavar="TARGET", help="файл для записи")
+    parser.add_argument("-i", "--input", required=True, help="файл для копирования")
+    parser.add_argument("-o", "--output", required=True, help="файл для записи")
 
     args = parser.parse_args()
     copy_file(args.input, args.output)
-

@@ -1,17 +1,16 @@
 import argparse
 
-def factorial(args_object):
-    if args_object.number is None:
+def factorial(numb, verbose=False):
+    if numb is None:
         return None
-    n = args_object.number
 
-    result = 1
-    process = [result := result * num for num in range(1, n + 1)]
+    res = 1
+    process = [res := res * num for num in range(1, numb + 1)]
 
-    if args_object.verbose:
-        return f"Результат вычисления: {result}\nПодробное вычисление: {process}"
+    if verbose:
+        return f"Результат вычисления: {res}\nПодробное вычисление: {process}"
     else:
-        return f"Результат вычисления: {result}"
+        return f"Результат вычисления: {res}"
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -19,5 +18,6 @@ if __name__ == "__main__":
     parser.add_argument("-v", "--verbose", action="store_true", help="Показать подробное вычисление")
 
     args = parser.parse_args()
-    print(factorial(args))
 
+    result = factorial(args.number, args.verbose)
+    print(result)
