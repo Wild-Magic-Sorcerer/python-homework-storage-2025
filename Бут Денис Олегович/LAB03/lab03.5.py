@@ -1,23 +1,25 @@
-def factorial(number):
-    if not number:
-        return None
-    if isinstance(number,int):
-        result = 1
-        for num in range(1,number + 1):
-            result *= num
-        return result
-    return None
+def factorial_iterative(number):
 
-def factorial_rec(number):
-    if not isinstance(number,int) or not number:
+    if not isinstance(number, int):
         return None
-    if number == 0 or number == 1:
+    if number < 0:
+        return None
+    result = 1
+    for num in range(1, number + 1):
+        result *= num
+    return result
+
+
+def factorial_recursive(number):
+
+    if not isinstance(number, int):
+        return None
+    if number < 0:
+        return None
+    if number == 0:
         return 1
-    return number * factorial_rec(number - 1)
+    return number * factorial_recursive(number - 1)
 
 if __name__ == '__main__':
-    print(factorial(6))
-    print(factorial_rec(5))
-
-
-
+    print(factorial_iterative(6))
+    print(factorial_recursive(5))
