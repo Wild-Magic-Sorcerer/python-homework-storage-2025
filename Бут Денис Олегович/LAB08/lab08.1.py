@@ -13,7 +13,5 @@ if __name__ == "__main__":
               f"код города: {city_code}, полный номер: +{country_code}({city_code}){subscriber_number} "
               f"номер абонента: {subscriber_number},")
     else:
-
         print("Номер не найден")
-
 
