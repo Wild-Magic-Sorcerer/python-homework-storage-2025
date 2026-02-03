@@ -3,7 +3,9 @@ def average(list_of_strings):
     return avg
 
 
-def average_string(list_of_strings, number = None ):
+def average_string(list_of_strings, number ):
+    if not list_of_strings or not number:
+        return None
     list_of_strings = [ string for string in list_of_strings if len(string) > number ]
     return list_of_strings
 
