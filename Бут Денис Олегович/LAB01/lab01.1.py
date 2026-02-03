@@ -1,29 +1,45 @@
-def calculate_big_one(def_for_big_num):
-    biggest_num = int(def_for_big_num[0])
-    for num in def_for_big_num:
-        if int(num) > biggest_num:
-            biggest_num= int(num)
-    return biggest_num
-
-
-def calculate_little_one(def_for_smallest_num):
-    if not def_for_smallest_num:
+def find_maximum(numbers):
+    if not numbers:
         return None
-    smallest_num = int(def_for_smallest_num[0])
-    for num in def_for_smallest_num:
-        if int(num) < smallest_num:
-            smallest_num = int(num)
-    return smallest_num
+
+    maximum = int(numbers[0])
+    for number in numbers:
+        current = int(number)
+        if current > maximum:
+            maximum = current
+    return maximum
+
+
+def find_minimum(numbers):
+    if not numbers:
+        return None
+
+    minimum = int(numbers[0])
+    for number in numbers:
+        current = int(number)
+        if current < minimum:
+            minimum = current
+    return minimum
+
 
 if __name__ == "__main__":
     list_of_num = []
-    while len(list_of_num) <= 9:
-        user_numbers = input("Введите числа")
-        if user_numbers.lower() == "n" or user_numbers == "":
-            break
-        list_of_num.append(user_numbers)
-    print(list_of_num)
-    list_for_sum = [0]
-    for number in list_of_num:
-        list_for_sum = [list_for_sum[0] + int(number)]
-    print(calculate_big_one(list_of_num), calculate_little_one(list_of_num), list_for_sum)
+
+    print("Введите 10 целых чисел:")
+
+    while len(list_of_num) < 10:
+        user_input = input(f"Число {len(list_of_num) + 1}: ").strip()
+
+        try:
+            num = int(user_input)
+            list_of_num.append(num)
+        except ValueError:
+            print("Пожалуйста, введите целое число.")
+
+    print(f"\nВведенные числа: {list_of_num}")
+
+    summarise = sum(list_of_num)
+
+    print(f"Наибольшее число: {find_maximum(list_of_num)}")
+    print(f"Наименьшее число: {find_minimum(list_of_num)}")
+    print(f"Сумма чисел: {summarise}")
