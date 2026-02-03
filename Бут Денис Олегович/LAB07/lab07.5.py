@@ -21,3 +21,4 @@ if __name__ == "__main__":
 
     result = factorial(args.number, args.verbose)
     print(result)
+
