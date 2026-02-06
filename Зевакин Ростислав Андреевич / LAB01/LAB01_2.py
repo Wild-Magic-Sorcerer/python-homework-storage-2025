@@ -39,9 +39,7 @@ while True:
     except IndexError:
         print("Ошибка: недостаточно данных")
 
-print("\n" + "#" * 50)
 print("Оценки студентов:")
-print("#" * 50)
 
 for student in st_list:
     name = student[0]
