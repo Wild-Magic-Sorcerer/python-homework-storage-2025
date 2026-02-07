@@ -10,7 +10,7 @@ def factorial(numb, verbose=False):
     numbers = [num for num in range(1, numb + 1)]
 
     for num in numbers:
-        res = res * num
+        res *= num
         process.append(res)
 
     if verbose:

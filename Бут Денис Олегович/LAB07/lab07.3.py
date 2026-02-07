@@ -14,6 +14,11 @@ if __name__ == "__main__":
     parser.add_argument("-c", "--count", action="store_true", help="Подсчитать количество строк")
 
     args = parser.parse_args()
-    result = format_strings(args.strings, args.count)
-    print(result)
+    if not args.strings:
+        if not args.strings:
+            print("Ошибка: не указаны строки для обработки")
+        else:
+            result = format_strings(args.strings, args.count)
+            print(result)
+
 
