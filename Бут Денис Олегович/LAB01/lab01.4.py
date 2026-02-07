@@ -5,7 +5,6 @@ if __name__ == "__main__":
         amount_of_number = main_list.count(number)
         if number not in tuple_of_num:
             tuple_of_num.update({number: amount_of_number})
-
         else:
             continue
     print(tuple_of_num)
