@@ -30,3 +30,8 @@ if __name__ == "__main__":
     print(account.get_balance())
     print(account.deposit(some_deposit))
     print(account.withdraw(some_withdraw))
+
+    try:
+        print(f"Прямой доступ: {account.__balance}")
+    except AttributeError:
+        print("Нельзя получить баланс напрямую")

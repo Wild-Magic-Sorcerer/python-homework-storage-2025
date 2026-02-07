@@ -24,3 +24,4 @@ if __name__ == '__main__':
     Some_bus = Bus(120, 28, 2)
     Some_bus.info()
 
+
