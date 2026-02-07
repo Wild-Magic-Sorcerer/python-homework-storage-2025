@@ -16,7 +16,7 @@ def factorial_recursive(number):
         return None
     if number < 0:
         return None
-    if number == 0:
+    if number <= 1:
         return 1
     return number * factorial_recursive(number - 1)
 
