@@ -30,3 +30,4 @@ if __name__ == "__main__":
         print(f"Часы: {result['hours']}")
         print(f"Минуты: {result['minutes']}")
         print(f"Секунды: {result['seconds']}")
+

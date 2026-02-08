@@ -22,3 +22,5 @@ def transform_string(text):
 if __name__ == "__main__":
     string = "Некий русский текст! Some english text!"
     print(f"Исходная строка:, {string},\nПреобразованная: {transform_string(string)}")
+
+
