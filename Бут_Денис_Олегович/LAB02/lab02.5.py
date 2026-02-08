@@ -35,6 +35,3 @@ if __name__ == "__main__":
     str2 = input("Введите вторую строку:")
 
     compare_strings(str1, str2)
-
-
-    
