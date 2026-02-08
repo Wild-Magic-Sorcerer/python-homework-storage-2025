@@ -25,4 +25,3 @@ if __name__ == "__main__":
 
     text = "Пример строки, с 12 и знаками!!?"
     print(analyze_string(text))
-
