@@ -1,72 +1,88 @@
-a, b, c = "Зоология", "Ботаника", "Физкультура"
-st_list = []
+def main():
+    subjects = ["Зоология", "Ботаника", "Физкультура"]
+    NUM_SUBJECTS = len(subjects)
+    NUM_FIELDS = NUM_SUBJECTS + 1
 
-while True:
-    t_input = input("Введите имя студента, его оценки по Зоологии, Ботанике и Физкультуре через пробел (если студентов больше нет введите 'стоп'): ")
-    if t_input.lower() == 'стоп':
-        break
-    marks = t_input.split()
+    students = {}
 
-    if len(marks) != 4:
-        print("Ошибка: должно быть 3 оценки")
-        continue
+    print("Введите данные студентов (для завершения введите пустую строку или 'N'):")
 
-    name = marks[0]
+    while True:
+        user_input = input(
+            f"Введите имя студента и {NUM_SUBJECTS} оценки через пробел "
+            f"({', '.join(subjects)}): "
+        ).strip()
 
-    if any(name_name.isdigit() for name_name in name):
-        print("Ошибка: впишите имя")
-        continue
-    try:
-        mark1 = int(marks[1])
-        mark2 = int(marks[2])
-        mark3 = int(marks[3])
+        if not user_input or user_input.upper() == 'N':
+            break
 
-        numbers = [mark1, mark2, mark3]
+        data = user_input.split()
 
-        valid_marks = True
-        for grade in numbers:
-            if grade < 3 or grade > 5:
-                print("Ошибка: оценки должны быть от 3 до 5")
-                valid_marks = False
-                break
+        if len(data) != NUM_FIELDS:
+            print(f"Ошибка: должно быть {NUM_FIELDS} поля (имя и {NUM_SUBJECTS} оценки)")
+            continue
 
-        if valid_marks:
-            st_list.append([name, mark1, mark2, mark3])
-            print("Оценки добавлены")
+        name = data[0]
 
-    except ValueError:
-        print("Ошибка: после имени должны быть три числа")
-    except IndexError:
-        print("Ошибка: недостаточно данных")
+        if any(char.isdigit() for char in name):
+            print("Ошибка: имя не должно содержать цифры")
+            continue
 
-print("Оценки студентов:")
+        try:
+            grades = []
+            valid_grades = True
 
-for student in st_list:
-    name = student[0]
-    grades = student[1:]
-    print(f"{name}: {a} - {grades[0]}, {b} - {grades[1]}, {c} - {grades[2]}")
+            for i in range(1, NUM_FIELDS):
+                grade = int(data[i])
+                if grade < 3 or grade > 5:
+                    print(f"Ошибка: оценка должна быть от 3 до 5 (получено: {grade})")
+                    valid_grades = False
+                    break
+                grades.append(grade)
 
-all_marks = []
-z_marks = []
-b_marks = []
-f_marks = []
+            if valid_grades:
+                students[name] = grades
+                print(f"Оценки студента {name} добавлены")
 
-for human in st_list:
-    name = human[0]
-    marks = human[1:]
+        except ValueError:
+            print("Ошибка: оценки должны быть целыми числами")
+        except Exception as e:
+            print(f"Неожиданная ошибка: {e}")
 
-    all_marks.extend(marks)
-    z_marks.append(marks[0])
-    b_marks.append(marks[1])
-    f_marks.append(marks[2])
+    if not students:
+        print("Нет данных о студентах")
+        return
+
+    print("Оценки студентов:")
+
+    for name, grades in students.items():
+        subject_grades = []
+        for i, subject in enumerate(subjects):
+            subject_grades.append(f"{subject} - {grades[i]}")
+        print(f"{name}: {', '.join(subject_grades)}")
+
+    print("Средние баллы:")
+
+    subject_totals = {subject: [] for subject in subjects}
+
+    all_grades = []
+
+    for grades in students.values():
+        all_grades.extend(grades)
+        for i, subject in enumerate(subjects):
+            subject_totals[subject].append(grades[i])
+
+    if all_grades:
+        overall_avg = sum(all_grades) / len(all_grades)
+        print(f"Средний балл по всем предметам: {overall_avg:.2f}")
+
+    for subject in subjects:
+        grades_list = subject_totals[subject]
+        if grades_list:
+            subject_avg = sum(grades_list) / len(grades_list)
+            print(f"Средний балл по {subject.lower()}: {subject_avg:.2f}")
 
 
-    end_all = sum(all_marks) / len(all_marks)
-    end_z = sum(z_marks) / len(z_marks)
-    end_b = sum(b_marks) / len(b_marks)
-    end_f = sum(f_marks) / len(f_marks)
+if __name__ == "__main__":
+    main()
 
-print(f"Средний балл по всем предметам: {end_all}")
-print(f"Срединй балл по зоологии: {end_z}")
-print(f"Средний балл по ботанике: {end_b}")
-print(f"Средний балл по физкультуре: {end_f}")
