@@ -1,0 +1,14 @@
+dolphin
+cat
+cow
+dolphin
+robin
+falcon
+owl
+cat
+cow
+colibri
+elephant
+cow
+elephant
+
