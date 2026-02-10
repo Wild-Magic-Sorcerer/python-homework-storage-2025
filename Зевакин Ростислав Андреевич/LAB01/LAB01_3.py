@@ -1,7 +1,19 @@
-user_words = input("Введите слова через пробел: ")
+def main():
+    user_words = input("Введите слова через пробел: ").strip()
 
-words_list = user_words.split()
-words_tuple = tuple(words_list)
+    if not user_words:
+        print("Не было введено ни одного слова")
+        return
 
+    words = user_words.split()
 
-print(f"Кол-во уникальных слов: {len(set(words_tuple))}")
+    unique_words_count = len(set(words))
+
+    unique_words = set(words)
+
+    print(f"Всего слов: {len(words)}")
+    print(f"Количество уникальных слов: {unique_words_count}")
+    print(f"Уникальные слова: {', '.join(sorted(unique_words))}")
+
+if __name__ == "__main__":
+    main()
