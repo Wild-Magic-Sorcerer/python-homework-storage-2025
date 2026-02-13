@@ -1,21 +1,35 @@
-if __name__ == '__main__':
+def parse_datetime(text: str):
+    parts = text.split()
+
+    if len(parts) != 2:
+        raise ValueError("Неверный формат")
+
+    date_part, time_part = parts
+
+    day, month, year = date_part.split(".")
+    hour, minute, second = time_part.split(":")
+
+    return day, month, year, hour, minute, second
+
+
+def main():
     while True:
-        text = input("Введите дату и время (ДД.ММ.ГГГГ ЧЧ:ММ:СС): ")
+        user_input = input("Введите дату и время (ДД.ММ.ГГГГ ЧЧ:ММ:СС): ")
 
         try:
-            date, time = text.split()
-            day, month, year = date.split(".")
-            hour, minute, second = time.split(":")
+            day, month, year, hour, minute, second = parse_datetime(user_input)
 
-            print("День:", day)
-            print("Месяц:", month)
-            print("Год:", year)
-            print("Часы:", hour)
-            print("Минуты:", minute)
-            print("Секунды:", second)
-
+            print(f"День: {day}")
+            print(f"Месяц: {month}")
+            print(f"Год: {year}")
+            print(f"Часы: {hour}")
+            print(f"Минуты: {minute}")
+            print(f"Секунды: {second}")
             break
 
         except ValueError:
-            print("Неверный формат\nИспользуйте формат ДД.ММ.ГГГГ ЧЧ:ММ:СС\n")
+            print("Ошибка формата. Попробуйте снова.\n")
 
+
+if __name__ == "__main__":
+    main()
