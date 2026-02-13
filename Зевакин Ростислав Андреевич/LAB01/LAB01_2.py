@@ -1,88 +1,113 @@
-def main():
-    subjects = ["Зоология", "Ботаника", "Физкультура"]
-    NUM_SUBJECTS = len(subjects)
-    NUM_FIELDS = NUM_SUBJECTS + 1
-
-    students = {}
-
-    print("Введите данные студентов (для завершения введите пустую строку или 'N'):")
-
+def get_student_name():
     while True:
-        user_input = input(
-            f"Введите имя студента и {NUM_SUBJECTS} оценки через пробел "
-            f"({', '.join(subjects)}): "
-        ).strip()
+        name = input("Введите имя студента (Enter для завершения): ").strip()
 
-        if not user_input or user_input.upper() == 'N':
-            break
-
-        data = user_input.split()
-
-        if len(data) != NUM_FIELDS:
-            print(f"Ошибка: должно быть {NUM_FIELDS} поля (имя и {NUM_SUBJECTS} оценки)")
-            continue
-
-        name = data[0]
+        if not name:
+            return None
 
         if any(char.isdigit() for char in name):
             print("Ошибка: имя не должно содержать цифры")
             continue
 
-        try:
-            grades = []
-            valid_grades = True
+        special_chars = "\\/.*=!@#$%^№&*()_+[]{}|;:'\",<>?`~"
+        if any(char in special_chars for char in name):
+            print("Ошибка: имя не должно содержать спецсимволы")
+            continue
 
-            for i in range(1, NUM_FIELDS):
-                grade = int(data[i])
-                if grade < 3 or grade > 5:
-                    print(f"Ошибка: оценка должна быть от 3 до 5 (получено: {grade})")
-                    valid_grades = False
-                    break
-                grades.append(grade)
+        if len(name) < 2:
+            print("Ошибка: имя должно содержать хотя бы 2 символа")
+            continue
 
-            if valid_grades:
-                students[name] = grades
-                print(f"Оценки студента {name} добавлены")
+        return name
 
-        except ValueError:
-            print("Ошибка: оценки должны быть целыми числами")
-        except Exception as e:
-            print(f"Неожиданная ошибка: {e}")
 
-    if not students:
-        print("Нет данных о студентах")
-        return
-
-    print("Оценки студентов:")
-
-    for name, grades in students.items():
-        subject_grades = []
-        for i, subject in enumerate(subjects):
-            subject_grades.append(f"{subject} - {grades[i]}")
-        print(f"{name}: {', '.join(subject_grades)}")
-
-    print("Средние баллы:")
-
-    subject_totals = {subject: [] for subject in subjects}
-
-    all_grades = []
-
-    for grades in students.values():
-        all_grades.extend(grades)
-        for i, subject in enumerate(subjects):
-            subject_totals[subject].append(grades[i])
-
-    if all_grades:
-        overall_avg = sum(all_grades) / len(all_grades)
-        print(f"Средний балл по всем предметам: {overall_avg:.2f}")
+def get_student_grades(subjects):
+    grades = []
 
     for subject in subjects:
-        grades_list = subject_totals[subject]
-        if grades_list:
-            subject_avg = sum(grades_list) / len(grades_list)
-            print(f"Средний балл по {subject.lower()}: {subject_avg:.2f}")
+        try:
+            grade = int(input(f"Оценка по {subject}: "))
+
+            if grade < 3 or grade > 5:
+                print(f"Ошибка: оценка должна быть от 3 до 5 (получено: {grade})")
+                return None
+
+            grades.append(grade)
+
+        except ValueError:
+            print("Ошибка: оценка должна быть целым числом")
+            return None
+
+    return grades
+
+
+def calculate_averages(students_dict, subjects):
+    if not students_dict:
+        return {}
+
+    all_grades = []
+    subject_grades = {subject: [] for subject in subjects}
+
+    for grades in students_dict.values():
+        all_grades.extend(grades)
+        for i, subject in enumerate(subjects):
+            subject_grades[subject].append(grades[i])
+
+    averages = {
+        'overall': sum(all_grades) / len(all_grades) if all_grades else 0,
+        'by_subject': {}
+    }
+
+    for subject in subjects:
+        grades = subject_grades[subject]
+        averages['by_subject'][subject] = sum(grades) / len(grades) if grades else 0
+
+    return averages
+
+
+def print_results(students_dict, subjects):
+    if not students_dict:
+        print("\nНет данных о студентах.")
+        return
+
+    for name, grades in students_dict.items():
+        grade_strings = []
+        for i, subject in enumerate(subjects):
+            grade_strings.append(f"{subject}: {grades[i]}")
+        print(f"{name}: {', '.join(grade_strings)}")
+
+    averages = calculate_averages(students_dict, subjects)
+
+    print(f"Общий средний балл: {averages['overall']:.2f}")
+    print("\nПо предметам:")
+    for subject, avg in averages['by_subject'].items():
+        print(f"  {subject}: {avg:.2f}")
+
+
+def main():
+    subjects = ["Зоология", "Ботаника", "Физкультура"]
+    students = {}
+
+    print(f"\nПредметы: {', '.join(subjects)}")
+    print("\nДля завершения ввода оставьте имя пустым.")
+
+    while True:
+        print(f"\n Студент №{len(students) + 1} ")
+
+        name = get_student_name()
+        if name is None:
+            break
+
+        grades = get_student_grades(subjects)
+        if grades is None:
+            print("Отмена")
+            continue
+
+        students[name] = grades
+        print(f"Студент {name} добавлен")
+
+    print_results(students, subjects)
 
 
 if __name__ == "__main__":
     main()
-
