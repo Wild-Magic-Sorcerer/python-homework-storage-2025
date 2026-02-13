@@ -25,3 +25,13 @@ def analyze_string(text: str) -> dict:
             result["punctuation"] += 1
 
     return result
+
+if __name__ == "__main__":
+    user_input = input("Введите строку: ")
+    res = analyze_string(user_input)
+
+    print("Количество слов:", res["words"])
+    print("Количество букв:", res["letters"])
+    print("Количество цифр:", res["digits"])
+    print("Количество пробелов:", res["spaces"])
+    print("Количество знаков препинания:", res["punctuation"])
