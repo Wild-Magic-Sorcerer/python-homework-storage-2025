@@ -1,17 +1,25 @@
-if __name__ == '__main__':
-    text = input("Введите строку: ")
+def ch_case(text: str) -> str:
+    vowels = "аеёиоуыэюяaeiou"
+    new_text = ""
 
-    vowels = "аеёиоуыэюяaeiouy"
-    result = ""
-
-    for char in text:
-        if char.isalpha():
-            if char.lower() in vowels:
-                result += char.upper()
+    for symb in text:
+        if symb.isalpha():
+            if symb.lower() in vowels:
+                new_text += symb.upper()
             else:
-                result += char.lower()
+                new_text += symb.lower()
         else:
-            result += char
+            new_text += symb
 
-    print(f"Ваша строка: '{text}'")
-    print(f"Результат: '{result}'")
+    return new_text
+
+
+def main():
+    user_text = input("Введите строку: ")
+    result = ch_case(user_text)
+    print("Результат:", result)
+
+
+if __name__ == "__main__":
+    main()
+    
