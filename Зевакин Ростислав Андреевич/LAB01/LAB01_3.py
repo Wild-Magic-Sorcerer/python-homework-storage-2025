@@ -1,4 +1,4 @@
-def main():
+ef main():
     user_words = input("Введите слова через пробел: ").strip()
 
     if not user_words:
@@ -7,9 +7,9 @@ def main():
 
     words = user_words.split()
 
-    unique_words_count = len(set(words))
-
     unique_words = set(words)
+
+    unique_words_count = len(unique_words)
 
     print(f"Всего слов: {len(words)}")
     print(f"Количество уникальных слов: {unique_words_count}")
@@ -17,3 +17,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
