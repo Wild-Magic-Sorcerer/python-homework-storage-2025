@@ -5,13 +5,14 @@ def factorial(numb, verbose=False):
         return None
 
     res = 1
-    process = []
 
     numbers = [num for num in range(1, numb + 1)]
 
     for num in numbers:
         res *= num
-        process.append(res)
+        print(f"Шаг {num}:{res}")
+    print(f"Результат: {res}}")
+
 
     if verbose:
         return f"Результат вычисления: {res}\nПодробное вычисление: {process}"
