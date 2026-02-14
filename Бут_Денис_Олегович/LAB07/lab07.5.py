@@ -8,10 +8,10 @@ def factorial(numb, verbose=False):
     res = 1
     process = ""
 
-    for i in range(1, numb + 1):
-        res *= i
+    for num in range(1, numb + 1):
+        res *= num
         if verbose:
-            process += f"Шаг {i}: {res}\n"
+            process += f"Шаг {num}: {res}\n"
 
     if verbose:
         return f"Результат вычисления: {res}\nПодробное вычисление:\n{process}"
@@ -24,4 +24,5 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     print(factorial(args.number, args.verbose))
+
 
