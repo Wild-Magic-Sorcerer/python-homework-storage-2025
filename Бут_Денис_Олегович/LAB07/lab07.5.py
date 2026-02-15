@@ -6,17 +6,13 @@ def factorial(numb, verbose=False):
         return None
 
     res = 1
-    process = ""
-
     for num in range(1, numb + 1):
         res *= num
         if verbose:
-            process += f"Шаг {num}: {res}\n"
+            print(f"Шаг {num}: {res}")
 
-    if verbose:
-        return f"Результат вычисления: {res}\nПодробное вычисление:\n{process}"
-    return f"Результат вычисления: {res}"
-
+    print(f"Результат вычисления: {res}")
+    return res
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("number", type=int, help="Число для вычисления факториала")
