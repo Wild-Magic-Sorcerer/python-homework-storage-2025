@@ -12,7 +12,9 @@ def factorial(numb, verbose=False):
             print(f"Шаг {num}: {res}")
 
     print(f"Результат вычисления: {res}")
+    
     return None
+    
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("number", type=int, help="Число для вычисления факториала")
@@ -20,6 +22,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     print(factorial(args.number, args.verbose))
+
 
 
 
