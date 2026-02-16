@@ -6,3 +6,4 @@ for number in numbers:
 
 for number, count in count_dict.items():
     print(f"{number} - {count}")
+
