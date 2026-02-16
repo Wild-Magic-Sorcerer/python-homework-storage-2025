@@ -15,5 +15,6 @@ def main():
     print("Сообщение записано.")
 
 
-if name == "main":
+if __name__ == "__main__":
     main()
+
