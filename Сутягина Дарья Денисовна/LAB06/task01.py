@@ -17,7 +17,7 @@ class Bus(Transport):
         return f"{base_info}\nНомер маршрута: {self.route_number}"
 
 
-if name == "main":
+if __name__ == "__main__":
     transport = Transport(80, 4)
     bus = Bus(60, 40, 25)
 
@@ -26,3 +26,4 @@ if name == "main":
 
     print("\nИнформация об автобусе:")
     print(bus.info())
+
