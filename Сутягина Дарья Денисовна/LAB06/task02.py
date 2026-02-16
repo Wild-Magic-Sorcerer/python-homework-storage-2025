@@ -21,7 +21,7 @@ class BankAccount:
         return self.__balance
 
 
-if name == "main":
+if __name__ == "__main__":
     account1 = BankAccount(1000)
     account2 = BankAccount(500)
 
@@ -39,3 +39,4 @@ if name == "main":
         print(account.__balance)
     except AttributeError:
         print("Ошибка доступа.")
+
