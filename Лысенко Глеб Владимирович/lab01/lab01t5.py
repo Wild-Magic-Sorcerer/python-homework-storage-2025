@@ -1,4 +1,9 @@
-original_list = list(range(-10, 11))
-multiples_of_3 = [num for num in original_list if num % 3 == 0]
-print(multiples_of_3)
+import random
+
+    numbers = [random.randint(-10, 10) for _ in range(15)]
+
+    multiples_of_three = [num for num in numbers if num % 3 == 0]
+
+print(f"Исходный список: {numbers}")
+print(f"Только кратные 3: {multiples_of_three}")
 
