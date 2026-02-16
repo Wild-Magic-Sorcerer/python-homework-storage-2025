@@ -22,7 +22,7 @@ class Manager(Employee):
         print(f"{self.name} проводит совещание.")
 
 
-if name == "main":
+if __name__ == "__main__":
     person = Person("Иван", "программист")
     employee = Employee("Анна", "инженер", "старший инженер")
     manager = Manager("Олег", "менеджер", "руководитель отдела")
@@ -32,6 +32,8 @@ if name == "main":
 
     employee.introduce()
     print()
+    
 
     manager.introduce()
     manager.hold_meeting()
+
