@@ -2,8 +2,8 @@ import argparse
 
 
 def factorial(numb, verbose=False):
-    if not numb :
-        return None
+     if  numb < 0:
+        return "Введите положительное число"
 
     res = 1
     for num in range(1, numb + 1):
@@ -20,6 +20,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     print(factorial(args.number, args.verbose))
+
 
 
 
