@@ -1,0 +1,30 @@
+import argparse
+
+
+def factorial(numb, verbose=False):
+     if  numb < 0:
+        return "Введите положительное число"
+
+    res = 1
+    for num in range(1, numb + 1):
+        res *= num
+        if verbose:
+            print(f"Шаг {num}: {res}")
+            
+    return f"Результат вычисления: {res}"
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("number", type=int, help="Число для вычисления факториала")
+    parser.add_argument("-v", "--verbose", action="store_true", help="Показать подробное вычисление")
+
+    args = parser.parse_args()
+    print(factorial(args.number, args.verbose))
+
+
+
+
+
+
+
+
