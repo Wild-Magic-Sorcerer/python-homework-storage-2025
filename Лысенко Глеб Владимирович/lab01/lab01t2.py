@@ -31,8 +31,8 @@ def main():
 
     if all_grades:
         average_grade = sum(all_grades) / len(all_grades)
-        min_grade = min(all_grades)
-        max_grade = max(all_grades)
+        min_grade = my_min(all_grades)
+        max_grade = my_max(all_grades)
 
         print(f"\nСредний балл по всем студентам: {average_grade:.2f}")
         print(f"Минимальная оценка: {min_grade}")
@@ -40,7 +40,24 @@ def main():
     else:
         print("Нет оценок для анализа.")
 
+def my_min(numbers):
+    if not numbers:
+        return None
+    minimum = numbers[0]
+    for num in numbers:
+        if num < minimum:
+            minimum = num
+    return minimum
+
+def my_max(numbers):
+    if not numbers:
+        return None
+    maximum = numbers[0]
+    for num in numbers:
+        if num > maximum:
+            maximum = num
+    return maximum
+
 
 if __name__ == "__main__":
     main()
-
