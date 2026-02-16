@@ -28,5 +28,6 @@ def main():
         print("Неуникальных строк нет.")
 
 
-if name == "main":
+if __name__ == "__main__":
     main()
+
