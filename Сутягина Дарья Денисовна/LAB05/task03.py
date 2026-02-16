@@ -13,5 +13,7 @@ def main():
     print("Готово. Слова 'cat' заменены на 'dog'.")
 
 
-if name == "main":
+if __name__ == "__main__":
     main()
+    
+
